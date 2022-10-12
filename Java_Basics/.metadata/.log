@@ -3078,3 +3078,129 @@ java.lang.InterruptedException
 	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
 	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
 	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:15:00.248
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.QkqkBRwV
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:15:00.249
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.QkqkBRwV
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:15:00.250
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:15:00.251
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.QkqkBRwV => OK
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:32:25.254
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:32:25.261
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:32:30.440
+!MESSAGE locking FileBasedConfig[C:\Users\cogjava3256\.gitconfig] failed after 5 retries
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:34:54.273
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:34:54.299
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:46:57.556
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:46:57.559
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:46:58.877
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:46:58.882
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:47:12.838
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:47:12.841
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:48:54.336
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:48:54.339
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:49:06.402
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2022-10-12 14:49:06.404
+!MESSAGE Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:06.561
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:06.562
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@4b6abf4e[org.springframework.tooling.boot.ls:1.13.0.201911200938(id=632)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:06.562
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.272
+!MESSAGE Boot LS startup time from start to initialized: 7708ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.336
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.ulyvOMmUisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.338
+!MESSAGE subscribing to classpath changes: sts4.classpath.ulyvOMmU isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.339
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.340
+!MESSAGE subsribers = {sts4.classpath.ulyvOMmU=Send Classpath Notifications(2100)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.341
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.341
+!MESSAGE project Junit5_Basics ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.342
+!MESSAGE project Java_Basics ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.343
+!MESSAGE Preparing classpath changed notification Junit5_Basics
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.343
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.344
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.344
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.ulyvOMmU => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.345
+!MESSAGE classpath=13 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.345
+!MESSAGE buffering callback sts4.classpath.ulyvOMmU Junit5_Basics false 13
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.346
+!MESSAGE Preparing classpath changed notification Java_Basics
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.346
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.347
+!MESSAGE classpath=2 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.348
+!MESSAGE buffering callback sts4.classpath.ulyvOMmU Java_Basics false 2
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.348
+!MESSAGE executing callback sts4.classpath.ulyvOMmU 2 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2022-10-12 14:49:14.392
+!MESSAGE executing callback sts4.classpath.ulyvOMmU SUCCESS [done]
