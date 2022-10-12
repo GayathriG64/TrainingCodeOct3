@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserForm</title>
+    <style>
+        table, th, td{
+            border: 1px solid black
+            
+        }
+        th,td{
+            background-color: blanchedalmond ;
+            border-radius: 10px;
+        }
+    </style>
+    <script src="./userForm.js"></script>
+</head>
+<body>
+    <div style="border-color:red; border-style:groove ; border-radius: 2; border-width: 2;">
+        <h1 style="text-align: center;">This is header</h1>
+    </div>
+    <br/>
+    <div style="border-color:red; border-style: double; border-radius: 2;">
+        <form>
+        <label for="name">
+            Name:
+        </label>
+        <input id="name" onblur="blurEvent()" type="text" placeholder="Enter your name here"/>
+        <br/>
+        <label for="Age">
+            Age:
+        </label>
+        <input id="Age" type="text" placeholder="Enter your age here"/>
+        <br/>
+        <label for="Email">
+            Email:
+        </label>
+        <input id="Email" type="email" placeholder="Enter your email here"/>
+        <br/>
+        <label for="gender">Gender: </label>
+            <input type="radio" name="gender" value="male"   id="gender"/>Male
+            <input type="radio" name="gender" value="female" id="gender"/>Female
+        <br/>
+        <select id="food" onchange="OnChangeEvent()">
+            <option value="Pizza!">Pizza</option>
+            <option value="Burger!">Burger</option>
+            <option value="Biryani!">Biryani</option>
+            <option value="Nuggets!">Nuggets</option>
+        </select>
+        <p id="para"> </p>
+        <button style="stroke-width: 2px;" id="button" onfocus="onFocusEvent(this.id)">Submit</button>
+    </form>
+    </div>
+    <table>
+        <tr>
+            <th>StudentId</th>
+            <th>StudentName</th>
+            <th>StudentClass</th>
+            <th>StudentPhoneNumber</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>Gayathri</th>
+            <th>Class 5</th>
+            <th>9876543210</th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <th>Mohan</th>
+            <th>Class 5</th>
+            <th>9876543210</th>
+        </tr>
+        <tr>
+            <th>3</th>
+            <th>Jaswanth</th>
+            <th>Class 5</th>
+            <th>9876543210</th>
+        </tr>
+    </table>
+
+    <div style="text-align: justify;">
+        <ul>
+            <li>Panner</li>
+            <li>Onion</li>
+            <li>Capsicum</li>
+            <li>Chicken</li>
+        </ul>
+        <ol>
+            <li>Panner</li>
+            <li>Onion</li>
+            <li>Capsicum</li>
+            <li>Chicken</li>
+        </ol>
+    </div>
+    <img src="./dog.jpg"/>
+    <img src="./puppyImage.jfif"/>
+    <a href="https://www.rd.com/list/adorable-puppy-pictures/">See more cute puppies here</a>
+</body>
+</html>

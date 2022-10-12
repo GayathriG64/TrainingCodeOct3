@@ -1,0 +1,49 @@
+package com.functional.interfaces;
+
+interface Calculate{
+	public int add(int n1,int n2);
+	public int subtract(int n1,int n2);
+	public int multiply(int n1,int n2);
+	public int divide(int n1,int n2);
+	default void print() {
+		System.out.println("The results : ");
+	} 
+}
+public class Example3 implements Calculate{
+
+	@Override
+	public int add(int n1, int n2) {
+		// TODO Auto-generated method stub
+		return (n1+n2);
+	}
+
+	@Override
+	public int subtract(int n1, int n2) {
+		// TODO Auto-generated method stub
+		return (n1-n2);
+	}
+
+	@Override
+	public int multiply(int n1, int n2) {
+		// TODO Auto-generated method stub
+		return (n1*n2);
+	}
+
+	@Override
+	public int divide(int n1, int n2) {
+		// TODO Auto-generated method stub
+		return (n1/n2);
+	}
+
+	public static void main(String[] args) {
+		Example3 ex3= new Example3();
+		int x1=100; int x2 =10;
+		ex3.print();
+		System.out.println("Addition of "+x1+ " and "+x2+ "is: "+ ex3.add(x1, x2));
+		System.out.println("Subtraction of "+x1+ " and "+x2+ "is: "+ ex3.subtract(x1, x2));
+		System.out.println("Multiplication of "+x1+ " and "+x2+ "is: "+ ex3.multiply(x1, x2));
+		System.out.println("Division of "+x1+ " and "+x2+ "is: "+ ex3.divide(x1, x2));
+	}
+
+
+}

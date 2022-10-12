@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./userForm.js"></script>
+    <style>
+        table, th, td{
+            border: 1px solid black
+        
+        }
+    </style>
+</head>
+<body>
+    <table>
+    <tr>
+        <th><label for="lastName">Last Name</label> </th>
+        <td><input id="lastName" onblur="blurEvent()" type="text" placeholder="Enter your last name here"/>
+        </td>
+    </tr>   
+     <tr>  
+        <th><label for="firstName">First Name</label></th>
+        <td><input id="firstName" onblur="blurEvent()" type="text" placeholder="Enter your first name here"/>
+        </td>
+    </tr>
+    <tr>  
+        <th><label for="address">Address</label></th>
+        <td><textarea id="address" onblur="blurEvent()" type="text" placeholder="Enter your address here">
+        </textarea>
+        </td>
+    </tr>
+    <tr>  
+        <th><label for="city">City</label></th>
+        <td>
+            <input id="address" onblur="blurEvent()" type="text" placeholder="Enter your city here">
+            <label for="State">State</label>
+            <input id="address" onblur="blurEvent()" type="text" placeholder="Enter your state here">
+        </td>
+    </tr>
+    <tr>  
+        <th><label for="zipPostalCode">Zip Postal Code</label></th>
+        <td><input id="zipPostalCode" type="number" placeholder="Enter your zipPostalCode here">
+        </td>
+    </tr>
+    <tr>
+        <th><label for="country">Country</label></th>
+        <td>
+            <select id="country">
+                <option value="IN">INDIA</option>
+                <option value="JP">JAPAN</option>
+                <option value="CN">CANADA</option>
+                <option value="CH">CHINA</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <th><label for="phone">Phone(Country Code,Are Code, Number)</label></th>
+        <td>
+            (+<input id="countryCode" type="number">)
+            <input id="countryCode" type="number">-
+            <input id="countryCode" type="number">
+        </td>
+    </tr>
+    <tr>
+        <th><label for="Email">Email</label></th>
+        <td><input id="Email" type="email" placeholder="Enter your email here"/></td>
+    </tr>
+    <tr>
+        <th><label for="date">Date</label></th>
+        <td>
+            Month<input id="month" type="month" />
+            Day<input id="day" type="number" />
+            Year(4 digit)<input id="year" type="year" />
+        </td>
+    </tr>
+    <tr>
+        <th><label for="Gender">Gender</label></th>
+        <td>
+            <input type="radio" name="gender" value="male"   id="gender"/>Male
+            <input type="radio" name="gender" value="female" id="gender"/>Female
+        </td>
+    </tr>
+    <tr>
+        <th><label for="StartingDate">StartingDate</label></th>
+        <td>
+            <input type="radio" name="StartingDate" value="Spring2006"   id="gender"/>Spring 2006
+            <input type="radio" name="StartingDate" value="Summer2006" id="gender"/>Summer 2006
+        </td>
+    </tr>
+    <tr>
+        <th><label for="comments">Comments/Questions</label></th>
+        <td><textarea id="comments" placeholder="Please, send me more information about the lodging"></textarea></td>
+    </tr>
+    <tr style="text-align: center; color:rgb(61, 139, 151);">
+        <td colspan="2" >
+            <button type="submit" style="fill: turquoise;">Submit</button>
+           <button type="reset" style="fill: turquoise;">Clear this form</button>
+        </td>
+    </tr>
+    </table>
+</body>
+</html>

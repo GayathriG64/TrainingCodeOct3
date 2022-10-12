@@ -1,0 +1,41 @@
+package com.functional.interfaces;
+
+import java.util.function.Predicate;
+import java.util.*;
+public class Challenge1 {
+	public static void main(String[] args) {
+		
+		Predicate<Integer> odd = (a)-> {
+			if(a%2==0)
+				return false;
+			else return true;
+		};
+		System.out.println("test odd "+odd.test(3));
+		
+		Predicate<Integer> prime = (a)-> {
+			if(a<2|| a%2==0)
+				return false;
+			if(a==2)
+				return true;
+			else {
+				for(int i=3; i<a;i++) {
+					if(a%i==0)
+						return false;
+				}
+				return true;
+			}
+		};
+		System.out.println("test prime: "+prime.test(17));
+		
+		Predicate<Integer> palin = (a)-> {
+			String str= a.toString(a);
+			StringBuilder sb = new StringBuilder(str);
+			if ((sb.reverse()).equals(sb))
+				return true;
+			else return false;
+		};
+		System.out.println("test odd "+palin.test(313));
+		
+		
+	}
+}

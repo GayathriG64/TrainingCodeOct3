@@ -1,0 +1,17 @@
+package com.functional.interfaces;
+
+import java.util.function.Predicate;
+
+public class PredicateExample {
+	public static void main(String[] args) {
+		
+		Predicate<Integer> isAnAdult = (i) ->  i>=18;
+		Predicate<Integer> notAnAdult = (i) ->  i<18;
+		Predicate<Integer> isRetired = (i) ->  i>60;
+		boolean result = isAnAdult.and(isRetired).test(66);
+		
+		System.out.println(result);
+		
+	}
+	
+}

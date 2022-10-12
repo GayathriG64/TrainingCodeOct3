@@ -1,0 +1,15 @@
+package com.functional.interfaces;
+
+import java.util.function.Predicate;
+
+public class Challenge1 {
+	public static void main(String[] args) {
+		
+		Predicate<Integer> p1 = (a)-> {
+			if(a%2==0)
+				return false;
+			else return true;
+		};
+		System.out.println(p1.test(3));
+	}
+}
