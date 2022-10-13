@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        table {
+            width: 100%;
+            border-spacing: 10px;
+            padding: 5px;
+        }
+
+        .formContainer {
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        .personal-form,
+        .identity-form {
+            margin-top: 20px;
+        }
+
+        td {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-right: 8px;
+            padding-left: 8px;
+        }
+
+        .button-styling {
+            margin-left: 10px;
+            padding-left: 65px !important;
+            padding-right: 65px !important;
+            font-size: 18px !important;
+            font-weight: 500 !important;
+        }
+    </style>
+    <script src="./registration.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body style="background-color: rgb(58, 72, 194); padding: 30px; width: 100vw;">
+    <div class="formContainer">
+        <form action="./submissionPage.html">
+            <h1>Registration</h1>
+            <div class="personal-form">
+                <h4 style="color: gray;">Personal Details</h4>
+                <table>
+                    <tr>
+                        <td>
+                            <label class="control-label" for="fullName">Full Name</label>
+                        </td>
+                        <td>
+                            <label class="control-label" for="dob">Date Of Birth</label>
+                        </td>
+                        <td>
+                            <label class="control-label" for="email">Email</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="fullName" onblur="textVal(this.id)"
+                                placeholder="Enter your name" required />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="dob" onblur="dateVal(this.id)"
+                                placeholder="Enter birth date" />
+                        </td>
+                        <td>
+                            <input type="email" class="form-control" id="email" onblur="emailVal()"
+                                placeholder="Enter your mail" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="control-label" for="mobileNumber">Mobile Number</label>
+                        </td>
+                        <td>
+                            <label class="control-label" for="Gender">Gender</label>
+                        </td>
+                        <td>
+                            <label class="control-label" for="occupation">Occupation</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="mobileNumber" onblur="phoneNumVal()"
+                                placeholder="Enter your mobile number" required />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="gender" onblur="genderVal()"
+                                placeholder="Enter your gender" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="occupation" onblur="textVal(this.id)"
+                                placeholder="Enter occupation" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="identity-form">
+                <h4 style="color: gray;">Identity Details</h4>
+                <table>
+                    <tr>
+                        <td>
+                            <label class="control-label" for="idType">ID Type</label>
+                        </td>
+                        <td>
+                            <label class="control-label" for="idNumber">ID Number</label>
+                        </td>
+                        <td>
+                            <label class="control-label" for="issueAuthority">Issue Authority</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="idType" placeholder="Enter ID type" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="idNumber" onblur="idVal()"
+                                placeholder="Enter ID Number" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="issueAuthority"
+                                placeholder="Enter issue department" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="control-label" for="issueDate">Issue Date</label>
+                        </td>
+                        <td>
+                            <label class="control-label" for="issueState">Issue State</label>
+                        </td>
+                        <td>
+                            <label class="control-label" for="expiryDate">Expiry Date</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" id="issueDate" onblur="dateVal(this.id)"
+                                placeholder="Enter ID issue date" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="issueState"
+                                placeholder="Enter ID issue state" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="expiryDate" onblur="dateVal(this.id)"
+                                placeholder="Enter ID expiry date" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="form-group personal-form">
+                <button type="submit" class="btn btn-primary button-styling" onsubmit="formCheck()">Next -></button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

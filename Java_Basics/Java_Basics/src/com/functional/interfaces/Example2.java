@@ -7,7 +7,7 @@ interface Square{
 	}
 }
 public class Example2 implements Square{
-
+	
 	@Override
 	public void square(int num1) {
 		// TODO Auto-generated method stub
