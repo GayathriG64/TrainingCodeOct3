@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Employee.Entity.Employee;
+import com.Employee.Exception.ResourceNotFoundException;
 
 @Service
 public class EmployeeServiceImpl implements IEmployeeService{
@@ -28,6 +29,26 @@ public class EmployeeServiceImpl implements IEmployeeService{
 	@Override
 	public Optional<Employee> getEmployee(Integer id) {
 		return employeeRepo.findById(id);
+	}
+
+	@Override
+	public void deleteEmployee(Integer id) {
+		employeeRepo.deleteById(id);
+		
+	}
+
+	@Override
+	public Employee updateEmployee(Employee employee, Integer id) {
+		Employee updatedEmployee = employeeRepo.findById(id).orElseThrow(
+				()-> new ResourceNotFoundException("Employee", "id", id)
+				);
+		//updatedEmployee.setId(employee.getId());	
+		updatedEmployee.setName(employee.getName());
+		updatedEmployee.setEmp_position(employee.getEmp_position());
+		updatedEmployee.setQualification(employee.getQualification());
+		updatedEmployee.setSalary(employee.getSalary());
+		employeeRepo.save(updatedEmployee);
+		return updatedEmployee;
 	}
 	
 }
