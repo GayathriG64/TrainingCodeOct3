@@ -3,18 +3,74 @@ package com.digitalbooks.entity;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Book {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	Integer bookID;
 	
 	String title;
 	String category;
 	Double price;
 	String author;
 	String publisher;
-	Date publishedDate;
+	String publishedDate;
 	String content;
 	Boolean active;
+	Long SubscriptionID;
+	Long AuthorID;
+	Long ReaderID;
+	String subscribed;
+	String blocked;
+	
+	String logo;
+	public String getLogo() {
+		return logo;
+	}
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+	public Long getSubscriptionID() {
+		return SubscriptionID;
+	}
+	public Long getAuthorID() {
+		return AuthorID;
+	}
+	public Long getReaderID() {
+		return ReaderID;
+	}
+	public String getBlocked() {
+		return blocked;
+	}
+	public void setSubscriptionID(Long subscriptionID) {
+		SubscriptionID = subscriptionID;
+	}
+	public void setAuthorID(Long authorID) {
+		AuthorID = authorID;
+	}
+	public void setReaderID(Long readerID) {
+		ReaderID = readerID;
+	}
+	public void setBlocked(String blocked) {
+		this.blocked = blocked;
+	}
+	public String getSubscribed() {
+		return subscribed;
+	}
+	public void setSubscribed(String subscribed) {
+		this.subscribed = subscribed;
+	}
+	public Integer getBookID() {
+		return bookID;
+	}
+	public void setBookID(Integer bookID) {
+		this.bookID = bookID;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -30,7 +86,7 @@ public class Book {
 	public String getPublisher() {
 		return publisher;
 	}
-	public Date getPublishedDate() {
+	public String getPublishedDate() {
 		return publishedDate;
 	}
 	public String getContent() {
@@ -54,7 +110,7 @@ public class Book {
 	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
-	public void setPublishedDate(Date publishedDate) {
+	public void setPublishedDate(String publishedDate) {
 		this.publishedDate = publishedDate;
 	}
 	public void setContent(String content) {
@@ -65,10 +121,12 @@ public class Book {
 	}
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", category=" + category + ", price=" + price + ", author=" + author
-				+ ", publisher=" + publisher + ", publishedDate=" + publishedDate + ", content=" + content + ", active="
-				+ active + "]";
+		return "Book [bookID=" + bookID + ", title=" + title + ", category=" + category + ", price=" + price
+				+ ", author=" + author + ", publisher=" + publisher + ", publishedDate=" + publishedDate + ", content="
+				+ content + ", active=" + active + ", SubscriptionID=" + SubscriptionID + ", AuthorID=" + AuthorID
+				+ ", ReaderID=" + ReaderID + ", subscribed=" + subscribed + ", blocked=" + blocked + "]";
 	}
 	
+
 	
 }
