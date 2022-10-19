@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.digitalbooks.entity.Book;
 
 @Repository
-public interface IBookRepo extends JpaRepository<Book, String> {
+public interface IBookRepo extends JpaRepository<Book, Long> {
 	
 	
 }

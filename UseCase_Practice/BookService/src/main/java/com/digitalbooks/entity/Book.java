@@ -12,7 +12,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	Integer bookID;
+	Long bookID;
 	
 	String title;
 	String category;
@@ -29,6 +29,20 @@ public class Book {
 	String blocked;
 	
 	String logo;
+	
+	public Book(String title, String category, Double price, String author, String publisher, String publishedDate,
+			String content, Boolean active, String logo) {
+		super();
+		this.title = title;
+		this.category = category;
+		this.price = price;
+		this.author = author;
+		this.publisher = publisher;
+		this.publishedDate = publishedDate;
+		this.content = content;
+		this.active = active;
+		this.logo = logo;
+	}
 	public String getLogo() {
 		return logo;
 	}
@@ -65,10 +79,10 @@ public class Book {
 	public void setSubscribed(String subscribed) {
 		this.subscribed = subscribed;
 	}
-	public Integer getBookID() {
+	public Long getBookID() {
 		return bookID;
 	}
-	public void setBookID(Integer bookID) {
+	public void setBookID(Long bookID) {
 		this.bookID = bookID;
 	}
 	public String getTitle() {
