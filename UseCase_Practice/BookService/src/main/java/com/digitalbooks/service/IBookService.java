@@ -9,4 +9,5 @@ public interface IBookService {
 	public Book saveBook(Book book);
 	public List<Book> saveAllBooks(List<Book> bookList);
 	public Book blockBook(Long bookId,String block);
+	public Book updateBook(Book book);
 }

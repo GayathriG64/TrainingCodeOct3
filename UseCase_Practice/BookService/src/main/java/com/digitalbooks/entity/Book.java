@@ -32,7 +32,6 @@ public class Book {
 	
 	public Book(String title, String category, Double price, String author, String publisher, String publishedDate,
 			String content, Boolean active, String logo) {
-		super();
 		this.title = title;
 		this.category = category;
 		this.price = price;
@@ -42,6 +41,9 @@ public class Book {
 		this.content = content;
 		this.active = active;
 		this.logo = logo;
+	}
+	public Book() {
+		super();
 	}
 	public String getLogo() {
 		return logo;

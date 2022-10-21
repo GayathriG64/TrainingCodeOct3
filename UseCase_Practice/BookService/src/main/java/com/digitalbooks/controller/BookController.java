@@ -36,9 +36,16 @@ public class BookController {
 		
 		@PutMapping("/author/{authorID}/books/{bookID}")
 		public Book blockorunBlockABook(@PathVariable Long authorID,@PathVariable Long bookID,
-				@RequestParam String block  ) {
+				@RequestParam(value="block",required =true) String block  ) {
 			Book updatedBook = bookService.blockBook(bookID, block);
 			return updatedBook;
 		}
 		
+		@PutMapping("/author/{authorID}/books/{bookID}/")
+		public Book updateBook(@PathVariable Long authorID,@PathVariable Long bookID,@RequestBody Book book) {
+			book.setAuthorID(authorID);
+			book.setBookID(bookID);
+			Book savedBook =bookService.updateBook(book);
+			return savedBook;
+		}
 }
