@@ -1,0 +1,18 @@
+{
+  "students": [
+    {
+      "fistName": "Gayathri",
+      "lastName": "Gudapuvalasa",
+      "gender": "Female",
+      "id": 1
+    },
+    {
+      "firstName": "John",
+      "lastName": "Martin",
+      "class": 10,
+      "email": "gdjn@gmail.com",
+      "gender": "MALE",
+      "id": 2
+    }
+  ]
+}

@@ -7,18 +7,24 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
 import { StudentRegComponent } from './Components/student-reg/student-reg.component';
 import { UserFormComponent } from './Components/user-form/user-form.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import {HttpClientModule} from '@angular/common/http';
+import { RegisteredStudentsComponent } from './Components/registered-students/registered-students.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     StudentRegComponent,
-    UserFormComponent
+    UserFormComponent,
+    NavbarComponent,
+    RegisteredStudentsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

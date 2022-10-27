@@ -1,35 +1,42 @@
 <h2 style="text-align: center;">{{title}}</h2>
 
 <div class="input-group mb-3">
-    <span class="input-group-text" id="fullName">Full Name</span>
-    <input [(ngModel)]=studentDetails.FullName type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    <span class="input-group-text" id="fullName">First Name</span>
+    <input [(ngModel)]=student.firstName type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
   </div>
   <br>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="fullName">Last Name</span>
+    <input [(ngModel)]=student.lastName type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+  <br>
+
   <div class="input-group mb-3">
     <span class="input-group-text" id="basic-addon1">Email</span>
-    <input [(ngModel)]=studentDetails.email type="email" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    <input [(ngModel)]=student.email type="email" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
   </div>
   <br>
   <div class="input-group mb-3">
     <span class="input-group-text" id="basic-addon1">Class</span>
-    <input [(ngModel)]=studentDetails.class type="number" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    <input [(ngModel)]=student.class type="number" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
   </div>
   <br>
   <label>Gender</label>
   <br>
   <div class="form-check">
-    <input [(ngModel)]=studentDetails.gender class="form-check-input" type="radio" name="radio1" id="radio1" value="MALE">
+    <input [(ngModel)]=student.gender class="form-check-input" type="radio" name="radio1" id="radio1" value="MALE">
     <label class="form-check-label" for="flexRadioDefault1">
       MALE
     </label>
    </div>
   <div class="form-check">
-    <input  [(ngModel)]=studentDetails.gender class="form-check-input" type="radio" name="radio1" id="radio1" value="FEMALE" checked>
+    <input  [(ngModel)]=student.gender class="form-check-input" type="radio" name="radio1" id="radio1" value="FEMALE" checked>
     <label class="form-check-label" for="flexRadioDefault2">
       FEMALE
     </label>
   </div>
   <br>
 <div>
-  <button type="button" (click)="saveStudentDetails()" class="btn btn-success">Success</button>
+  <button type="button" (click)="save()" class="btn btn-success">Success</button>
 </div>

@@ -29,21 +29,23 @@ public class BookServiceImpl implements IBookService {
 
 	@Override
 	public Book getBookByID(Integer id) {
-		Optional<Book> book = bookRepo.findById(id); 
-		Book foundbook = book.orElse(null);
+		Book foundbook  = bookRepo.findById(id).orElseThrow(
+				()-> new ResourceNotFoundException("Given book id :"+id+" doesn't exist")); 
 		return foundbook;
 	}
 
 	@Override
 	public Integer deleteBook(Integer id) {
-		bookRepo.deleteById(id);;
+		Book updatedBook = bookRepo.findById(id).orElseThrow(
+				()-> new ResourceNotFoundException("Given book id :"+id+" doesn't exist"));
+		bookRepo.deleteById(id);
 		return id;
 	}
 
 	@Override
 	public Book updateBook(Integer id,Book book) {
 		Book updatedBook = bookRepo.findById(id).orElseThrow(
-				()-> new ResourceNotFoundException("Given id:"+id+" doesn't exist"));
+				()-> new ResourceNotFoundException("Given book id :"+id+" doesn't exist"));
 		updatedBook.setBookAuthor(book.getBookAuthor());
 		updatedBook.setBookGenre(book.getBookGenre());
 		updatedBook.setBookName(book.getBookName());
@@ -57,6 +59,7 @@ public class BookServiceImpl implements IBookService {
 	public Book changeStatus(Integer id,Boolean status) {
 		Book updatedBook = bookRepo.findById(id).orElseThrow(
 				()-> new ResourceNotFoundException("Given id:"+id+" doesn't exist"));
+		
 		updatedBook.setBorrowedStatus(status);
 		bookRepo.save(updatedBook);
 		return updatedBook;

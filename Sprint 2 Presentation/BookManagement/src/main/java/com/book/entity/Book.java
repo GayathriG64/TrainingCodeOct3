@@ -69,7 +69,14 @@ public class Book {
 		this.bookGenre = bookGenre;
 		this.borrowedStatus=false;
 	}
-	public Book(Integer bookID, String bookName, String bookAuthor, Float bookPrice, String bookGenre,
+	public Book(String bookName, String bookAuthor, Float bookPrice, String bookGenre) {
+		super();
+		this.bookName = bookName;
+		this.bookAuthor = bookAuthor;
+		this.bookPrice = bookPrice;
+		this.bookGenre = bookGenre;
+	}
+	public Book( String bookName, String bookAuthor, Float bookPrice, String bookGenre,
 			Boolean borrowedStatus) {
 		super();
 		this.bookID = bookID;
