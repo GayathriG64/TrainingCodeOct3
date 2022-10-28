@@ -10,4 +10,5 @@ public interface IBookService {
 	public List<Book> saveAllBooks(List<Book> bookList);
 	public Book blockBook(Long bookId,String block);
 	public Book updateBook(Book book);
+	public Book getBookByID(Long id);
 }

@@ -40,7 +40,7 @@ public class BookServiceImpl implements IBookService{
 	@Override
 	public Book blockBook(Long bookId, String block) {
 		Optional<Book> updateBook = bookRepo.findById(bookId);
-		if(block=="no") {
+		if(block.equals("no")) {
 			updateBook.orElse(null).setActive(true);
 			updateBook.orElse(null).setBlocked("no");
 		}
@@ -67,6 +67,13 @@ public class BookServiceImpl implements IBookService{
 		Book updatedBook = updateBook.orElse(null);
 		bookRepo.save(updatedBook);
 		return updatedBook;
+	}
+
+	@Override
+	public Book getBookByID(Long id) {
+
+		Book book =bookRepo.findById(id).orElse(null);
+		return book ;
 	}
 	
 

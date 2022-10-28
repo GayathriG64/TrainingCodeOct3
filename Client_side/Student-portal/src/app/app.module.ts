@@ -9,7 +9,8 @@ import { StudentRegComponent } from './Components/student-reg/student-reg.compon
 import { UserFormComponent } from './Components/user-form/user-form.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import {HttpClientModule} from '@angular/common/http';
-import { RegisteredStudentsComponent } from './Components/registered-students/registered-students.component'
+import { RegisteredStudentsComponent } from './Components/registered-students/registered-students.component';
+import { BookLibraryComponent } from './Components/book-library/book-library.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RegisteredStudentsComponent } from './Components/registered-students/re
     StudentRegComponent,
     UserFormComponent,
     NavbarComponent,
-    RegisteredStudentsComponent
+    RegisteredStudentsComponent,
+    BookLibraryComponent
   ],
   imports: [
     BrowserModule,

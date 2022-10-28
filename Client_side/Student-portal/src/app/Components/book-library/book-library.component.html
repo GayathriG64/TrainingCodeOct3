@@ -1,0 +1,32 @@
+<div>
+    <label>Enter book Id</label>
+</div>
+<div >
+    <input [(ngModel)]=bookid type="number" id="bookid"/>
+    <input type="submit" value="Submit" (click)="submitid()">
+</div>
+<br/>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">Author</th>
+        <th scope="col">Publisher</th>
+        <th scope="col">PublisherDate</th>
+        <th scope="col">Blocked</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td>{{book.title}}</td>
+        <td>{{book.category}}</td>
+        <td>{{book.price}}</td>
+        <td>{{book.author}}</td>
+        <td>{{book.publisher}}</td>
+        <td>{{book.publishedDate}}</td>
+        <td>{{book.blocked}}</td>
+      </tr> 
+    </tbody>
+  </table>

@@ -1,5 +1,11 @@
 <ol class="list-group list-group-numbered">
-    <li class="list-group-item">A list item</li>
-    <li class="list-group-item">A list item</li>
-    <li class="list-group-item">A list item</li>
+    <li *ngFor="let s of students; index as i" class="list-group-item">
+       <span> {{s.firstName}} </span>
+       <span> {{s.lastName}} </span>
+       <span> Class : {{s.class}} </span>
+       
+      <button  style=" margin-left: 800px; margin-right: 800px;color: brown;background-color: crimson;"
+          type="button" class="btn-close" aria-label="Close" (click)="deleteStudent(s,i)"></button>
+      
+    </li>
   </ol>

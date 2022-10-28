@@ -3,6 +3,8 @@ package com.digitalbooks.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -37,6 +39,7 @@ public class BookController {
 		@PutMapping("/author/{authorID}/books/{bookID}")
 		public Book blockorunBlockABook(@PathVariable Long authorID,@PathVariable Long bookID,
 				@RequestParam(value="block",required =true) String block  ) {
+			System.out.println(bookID+block);
 			Book updatedBook = bookService.blockBook(bookID, block);
 			return updatedBook;
 		}
@@ -47,5 +50,11 @@ public class BookController {
 			book.setBookID(bookID);
 			Book savedBook =bookService.updateBook(book);
 			return savedBook;
+		}
+		
+		@CrossOrigin("http://localhost:4200")
+		@GetMapping("getBook/{id}")
+		public Book getBookByID(@PathVariable Long id) {
+			return bookService.getBookByID(id);	
 		}
 }
