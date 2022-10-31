@@ -10,7 +10,11 @@ import { UserFormComponent } from './Components/user-form/user-form.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import {HttpClientModule} from '@angular/common/http';
 import { RegisteredStudentsComponent } from './Components/registered-students/registered-students.component';
-import { BookLibraryComponent } from './Components/book-library/book-library.component'
+import { BookLibraryComponent } from './Components/book-library/book-library.component';
+import { AboutComponent } from './Components/about/about.component';
+import { ContactUsComponent } from './Components/contact-us/contact-us.component';
+import { PipeDemoComponent } from './Components/pipe-demo/pipe-demo.component';
+import { EllipsisPipe } from './Pipes/ellipsis.pipe'
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { BookLibraryComponent } from './Components/book-library/book-library.com
     UserFormComponent,
     NavbarComponent,
     RegisteredStudentsComponent,
-    BookLibraryComponent
+    BookLibraryComponent,
+    AboutComponent,
+    ContactUsComponent,
+    PipeDemoComponent,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,

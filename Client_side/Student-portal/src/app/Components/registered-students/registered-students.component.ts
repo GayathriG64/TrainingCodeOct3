@@ -15,6 +15,12 @@ export class RegisteredStudentsComponent implements OnInit {
       this.students.splice(index,1);
     })
   }
+
+  sort(){
+    this.students.sort(function(student1,student2){
+      return student1.class-student2.class
+    })
+  }
   students:Student[]=[];
 
   constructor(private studentService: StudentService) { }
