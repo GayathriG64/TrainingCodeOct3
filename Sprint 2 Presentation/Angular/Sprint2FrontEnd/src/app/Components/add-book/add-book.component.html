@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="src/app/Components/add-book/add-book.component.js"></script>
+</head>
+<body>
+
+<div class="container mt-3">
+  <h3>Enter book details here and submit</h3>
+    
+  <form action="/action_page.php" class="was-validated" name="myform">
+    <div class="mb-3 mt-3">
+      <label for="bookname" class="form-label">Book Name:</label>
+      <input [(ngModel)]=book.bookName type="text" class="form-control" id="bookname" placeholder="Enter here" name="bookname" required>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="bookgenre" class="form-label">Book Genre:</label>
+        <input  [(ngModel)]=book.bookGenre type="text" class="form-control" id="bookgenre" placeholder="Enter here" name="bookgenre" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="bookauthor" class="form-label">Book Author:</label>
+        <input  [(ngModel)]=book.bookAuthor type="text" class="form-control" id="bookauthor" placeholder="Enter here" name="bookauthor" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="bookprice" class="form-label">Book Price:</label>
+        <input  [(ngModel)]=book.bookPrice type="number" class="form-control" id="bookprice" placeholder="Enter price here" name="bookprice" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div><label>Availability</label></div>
+      <div class="form-check">
+        <input  [(ngModel)]=availablity value="No" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-label" for="flexRadioDefault1">
+          No
+        </label>
+      </div>
+      <div class="form-check">
+        <input [(ngModel)]=availablity value="Yes" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+        <label class="form-label" for="flexRadioDefault2">
+          Yes
+        </label>
+      </div>
+
+  <button type="submit" (click)="addBook()" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+
+    <div  style="padding-left: 40px;margin-top: 10px; background-color:rgb(131, 210, 255);">
+        To fetch all the books from library click here 
+        <button type="button" class="btn btn-outline-primary" (click)="getAllBooks()">
+            Get</button>
+    </div>
+   
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">BookID</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Book Price</th>
+            <th scope="col">Book Author</th>
+            <th scope="col">Book Genre</th>
+            <th scope="col">Borrowed</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody style="background-color: rgb(178, 204, 252); font-family: Arial; padding-left: 5px;">
+          <tr *ngFor="let book of books;index as i">
+            <td>{{book.bookID}}</td>
+            <td>{{book.bookName}}</td>
+            <td>{{book.bookPrice}}</td>
+            <td>{{book.bookAuthor}}</td>
+            <td>{{book.bookGenre}}</td>
+            <td>{{book.borrowedStatus}}</td>
+            <td><button type="button" class="btn-close" aria-label="Close" (click)="deleteBook(book,i)">
+            </button></td>
+          </tr> 
+        </tbody>
+    
