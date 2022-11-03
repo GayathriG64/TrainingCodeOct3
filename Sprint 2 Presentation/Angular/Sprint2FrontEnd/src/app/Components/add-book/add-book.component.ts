@@ -24,7 +24,7 @@ export class AddBookComponent implements OnInit {
     observable.subscribe(
       (response: any) => {
         console.log(response);
-        alert("Successfully Added Book!")
+        alert("Successfully Added Book with id : "+response)
       }, function(error){
         console.log(error);
         alert("Something wrong.Please try again")
