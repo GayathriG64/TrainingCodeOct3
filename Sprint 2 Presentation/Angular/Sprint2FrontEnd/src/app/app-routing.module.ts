@@ -5,7 +5,7 @@ import { GetBooksDeleteComponent } from './Components/get-books-delete/get-books
 import { HomeComponent } from './Components/home/home.component';
 
 const routes: Routes = [
-  {path:"home",component:HomeComponent},
+  {path:"",component:HomeComponent},
   {path:"addbook",component:AddBookComponent},
   {path:"getbooks",component:GetBooksDeleteComponent}
 ];

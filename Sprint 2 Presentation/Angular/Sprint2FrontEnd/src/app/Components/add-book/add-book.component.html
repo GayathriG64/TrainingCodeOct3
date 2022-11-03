@@ -4,14 +4,14 @@
   <title></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="src/app/Components/add-book/add-book.component.js"></script>
-</head>
-<body>
 
-<div class="container mt-3">
-  <h3>Enter book details here and submit</h3>
+</head>
+<body style="background-color: rgb(199, 216, 247)">
+
+<div class="container mt-3" style="background-color: rgb(241, 241, 241); padding-top: 20px;border-radius: 15px;">
+  <h3 style="text-align: center; background-color:  rgb(224, 231, 243)">Enter book details here and submit</h3>
     
-  <form action="/action_page.php" class="was-validated" name="myform">
+  <form action="/action_page.php" #myForm="ngForm" class="was-validated" name="myform">
     <div class="mb-3 mt-3">
       <label for="bookname" class="form-label">Book Name:</label>
       <input [(ngModel)]=book.bookName type="text" class="form-control" id="bookname" placeholder="Enter here" name="bookname" required>
@@ -49,9 +49,9 @@
         </label>
       </div>
 
-  <button type="submit" (click)="addBook()" class="btn btn-primary">Submit</button>
+  <button type="submit" (click)="addBook()" [disabled]="!myForm.valid" class="btn btn-primary">Submit</button>
   </form>
 </div>
-
+<script src="src/app/Components/add-book/add-book.component.js"></script>
 </body>
 </html>

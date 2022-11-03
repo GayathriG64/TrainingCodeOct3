@@ -13,6 +13,7 @@ export class AddBookComponent implements OnInit {
   book :BookGet = new BookGet();
   availablity:any;
   addBook(){
+
     if(this.availablity=="Yes"){
       this.book.borrowedStatus = true;
     }
@@ -23,6 +24,7 @@ export class AddBookComponent implements OnInit {
     observable.subscribe(
       (response: any) => {
         console.log(response);
+        alert("Successfully Added Book!")
       }, function(error){
         console.log(error);
         alert("Something wrong.Please try again")

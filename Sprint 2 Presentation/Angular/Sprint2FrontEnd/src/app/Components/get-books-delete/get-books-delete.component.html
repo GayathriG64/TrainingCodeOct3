@@ -1,5 +1,5 @@
 
-    <div  style="padding-left: 40px;margin-top: 10px; background-color:rgb(131, 210, 255);">
+    <div  style="padding-left: 40px;margin-top: 10px; background-color:rgb(199, 216, 247);">
         To fetch all the books from library click here 
         <button type="button" class="btn btn-outline-primary" (click)="getAllBooks()">
             Get</button>
@@ -17,7 +17,7 @@
             <th scope="col">Action</th>
           </tr>
         </thead>
-        <tbody style="background-color: rgb(178, 204, 252); font-family: Arial; padding-left: 5px;">
+        <tbody style="background-color: rgb(199, 216, 247); font-family: Arial; padding-left: 5px;">
           <tr *ngFor="let book of books;index as i">
             <td>{{book.bookID}}</td>
             <td>{{book.bookName}}</td>
