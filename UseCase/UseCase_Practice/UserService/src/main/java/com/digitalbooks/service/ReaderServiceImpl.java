@@ -20,5 +20,10 @@ public class ReaderServiceImpl implements IReaderService{
 		Reader reader = readerRepo.findByEmailId(emailId);
 		return reader;
 	}
+	@Override
+	public Reader getReaderByREaderId(Long readerID) {
+		Reader reader = readerRepo.findById(readerID).orElse(null);
+		return reader;
+	}
 
 }

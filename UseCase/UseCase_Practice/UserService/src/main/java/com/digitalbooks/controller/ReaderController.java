@@ -40,6 +40,20 @@ public class ReaderController {
 		Subscription savedSub=subscribedService.saveSubscription(newSub);
 		return savedSub;
 	}
+	@GetMapping("/readers/{emailid}/books/{subid}")
+	public Book getBookBySubscription(@PathVariable String emailid,@PathVariable Long subid) {
+		Subscription sub= subscribedService.getSubscriptionBySubscriptionId(subid);
+		Long readerID= sub.getReaderId();
+		Long bookId=sub.getBookId();
+		Reader reader = readerService.getReaderByREaderId(readerID);
+		
+		if(reader.getEmailId().equals(emailid)) {
+			Book book=restTemplate.getForObject("http://localhost:8090/api/v1/digitalbooks/getBook/"+bookId,Book.class);
+			return book;
+		}
+	 
+		return null;
+	}
 	@PostMapping("reader/register")
 	public String registerReader(@RequestBody Reader reader) {
 		Reader savedReader =readerService.saveReader(reader);
