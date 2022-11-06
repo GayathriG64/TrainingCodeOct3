@@ -1,5 +1,11 @@
 package com.digitalbooks.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,15 +51,33 @@ public class ReaderController {
 		Subscription sub= subscribedService.getSubscriptionBySubscriptionId(subid);
 		Long readerID= sub.getReaderId();
 		Long bookId=sub.getBookId();
-		Reader reader = readerService.getReaderByREaderId(readerID);
-		
+		Reader reader = readerService.getReaderByREaderId(readerID);	
 		if(reader.getEmailId().equals(emailid)) {
 			Book book=restTemplate.getForObject("http://localhost:8090/api/v1/digitalbooks/getBook/"+bookId,Book.class);
 			return book;
-		}
-	 
+		} 
 		return null;
 	}
+	
+	@GetMapping("/readers/{emailid}/books")
+	public List<Book> getAllSubscribedBooks(@PathVariable String emailid) {
+		Reader reader = readerService.getReaderByEmailId(emailid);	
+		Long readerId= reader.getReaderId();
+		List<Subscription> subscriptionList= subscribedService.getSubscriptionByReaderId(readerId);
+		List<Book>  book = new ArrayList<Book>();
+		subscriptionList.stream().forEach(
+		(sub)-> {book.add(
+		restTemplate.getForObject("http://localhost:8090/api/v1/digitalbooks/getBook/"+sub.getBookId(),Book.class)
+		);}
+		);
+/*	if(reader.getEmailId().equals(emailid)) {
+			Book book=restTemplate.getForObject("http://localhost:8090/api/v1/digitalbooks/getBook/"+bookId,Book.class);
+			return book;
+		} 
+*/
+		return book;
+	}
+	
 	@PostMapping("reader/register")
 	public String registerReader(@RequestBody Reader reader) {
 		Reader savedReader =readerService.saveReader(reader);
@@ -66,5 +90,16 @@ public class ReaderController {
 			return true;
 		return false;
 	}
-	
+/*	@GetMapping("/readers/{emailId}/books/{subscriptionId}")
+	public Book getSubscribedBookByID(@PathVariable String emailId,@PathVariable Long subscriptionId) {
+		Long bookId=0L;
+		Subscription sub= subscribedService.getSubscriptionBySubscriptionId(subscriptionId);
+		Reader reader = readerService.getReaderByEmailId(emailId);
+		if(sub.getReaderId().equals(reader.getReaderId())){
+			bookId= sub.getBookId();
+		}
+		Book book =restTemplate.getForObject("http://localhost:8090/api/v1/digitalbooks/getBook/"+bookId,Book.class);
+		return book;
+	}
+*/
 }
