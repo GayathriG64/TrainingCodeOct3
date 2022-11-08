@@ -8,7 +8,7 @@ export class Book{
 	 publishedDate :string;
 	 content:string;
 	 active:boolean;
-	 SubscriptionID:number=0;
+	 SubscriptionID:number;
 	 AuthorID:number;
 	 ReaderID:number;
 	 subscribed :string;

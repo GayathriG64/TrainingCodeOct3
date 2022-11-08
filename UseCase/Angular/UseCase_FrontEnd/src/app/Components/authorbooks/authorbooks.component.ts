@@ -63,7 +63,9 @@ export class AuthorbooksComponent implements OnInit {
   createBook(){
     this.router.navigate(['/createbook',this.authorId]);
   }
-
+  updateBook(bookId){
+    this.router.navigate(['/updatebook',this.authorId,bookId]);
+  }
   constructor(private route: ActivatedRoute,private authorService:AuthorService,private router:Router) { }
  
   ngOnInit(): void {

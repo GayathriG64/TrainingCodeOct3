@@ -1,9 +1,10 @@
-<p>authorbooks works! {{authorId}} </p>
+<!--<p>authorbooks works! {{authorId}} </p> -->
 
 <div  style="padding-left: 40px;margin-top: 10px; background-color:rgb(199, 216, 247);">
-    click here to create a new book
+    click here to create a book
     <button type="button" class="btn btn-outline-primary" (click)="createBook()">
         Create</button>
+        
 </div>
 <div  style="padding-left: 40px;margin-top: 10px; background-color:rgb(199, 216, 247);">
     To fetch all the books from library click here 
@@ -39,7 +40,8 @@
             <button type="button" class="btn btn-primary" (click)="blockBook(book,book.bookID)">Block</button>
             <button style="margin-left: 10px;" type="button" class="btn btn-primary" (click)="unblockBook(book,book.bookID)">Un-Block</button>
             <button style="margin-left: 10px;" type="button" class="btn btn-primary" (click)="readBook(book.content)">Read</button>
-        </td>
+            <button style="margin-left: 10px;" type="button" class="btn btn-primary" (click)="updateBook(book.bookID)">Update</button>
+          </td>
       </tr> 
     </tbody>
 

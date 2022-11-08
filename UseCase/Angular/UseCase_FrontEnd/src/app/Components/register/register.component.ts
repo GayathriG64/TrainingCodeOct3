@@ -28,7 +28,29 @@ export class RegisterComponent implements OnInit {
       observable.subscribe(
         (response: any) => {
           console.log(response);
-          alert("Successfully Added Author with id : "+response)
+          alert("Successfully registered as Author with id : "+response)
+        }, function(error){
+          console.log(error);
+          alert("Something wrong.Please try again")
+        }
+      )
+    }
+
+    if (this.role == "reader") {
+      this.reader.readerName=this.userName;
+      this.reader.emailId=this.emailId;
+      this.reader.readerPassword=this.password;
+      console.log(this.reader);
+      const observable= this.readerService.registerReader(this.reader);
+      observable.subscribe(
+        (response: any) => {
+          console.log(response);
+          if(response==0){
+            alert("You are an existing reader. Please login.")
+          }
+          else{
+          alert("Successfully registered reader with ID: "+response)
+          }
         }, function(error){
           console.log(error);
           alert("Something wrong.Please try again")

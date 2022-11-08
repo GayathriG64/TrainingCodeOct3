@@ -14,6 +14,8 @@ import { BookContentsComponent } from './Components/book-contents/book-contents.
 import { CreatebookComponent } from './Components/createbook/createbook.component';
 import { SubscribedbooksComponent } from './Components/subscribedbooks/subscribedbooks.component';
 import { SearchbookComponent } from './Components/searchbook/searchbook.component';
+import { MainComponent } from './Components/main/main.component';
+import { UpdatebookComponent } from './Components/updatebook/updatebook.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { SearchbookComponent } from './Components/searchbook/searchbook.componen
     BookContentsComponent,
     CreatebookComponent,
     SubscribedbooksComponent,
-    SearchbookComponent
+    SearchbookComponent,
+    MainComponent,
+    UpdatebookComponent
   ],
   imports: [
     BrowserModule,

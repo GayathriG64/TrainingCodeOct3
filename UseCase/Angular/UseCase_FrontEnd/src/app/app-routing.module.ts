@@ -4,9 +4,11 @@ import { AuthorbooksComponent } from './Components/authorbooks/authorbooks.compo
 import { BookContentsComponent } from './Components/book-contents/book-contents.component';
 import { CreatebookComponent } from './Components/createbook/createbook.component';
 import { LoginComponent } from './Components/login/login.component';
+import { MainComponent } from './Components/main/main.component';
 import { ReaderbooksComponent } from './Components/readerbooks/readerbooks.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { SearchbookComponent } from './Components/searchbook/searchbook.component';
+import { UpdatebookComponent } from './Components/updatebook/updatebook.component';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -15,7 +17,9 @@ const routes: Routes = [
   {path:"readerbooks/:readerId/:emailId",component:ReaderbooksComponent},
   {path:"bookcontent/:content",component:BookContentsComponent},
   {path:"createbook/:authorId",component:CreatebookComponent},
-  {path:"searchbook",component:SearchbookComponent}
+  {path:"searchbook",component:SearchbookComponent},
+  {path:"main",component:MainComponent},
+  {path:"updatebook/:authorId/:bookId",component:UpdatebookComponent}
 ];
 
 @NgModule({

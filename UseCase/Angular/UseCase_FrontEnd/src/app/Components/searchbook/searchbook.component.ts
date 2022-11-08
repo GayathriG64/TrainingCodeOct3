@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/Entity/Book';
+import { AuthorService } from 'src/app/Services/author.service';
 
 @Component({
   selector: 'app-searchbook',
@@ -8,9 +9,20 @@ import { Book } from 'src/app/Entity/Book';
 })
 export class SearchbookComponent implements OnInit {
 
-  book:Book= new Book();
+  books:Book[]= [];
+  book:Book=new Book();
 
-  constructor() { }
+  searchbook(){
+    console.log(this.book);
+    const observable= this.authorService.searchbook(this.book.title,this.book.category,this.book.price,this.book.author,this.book.publisher)
+    observable.subscribe(
+      (response)=>{
+     // console.log(response);
+      this.books=response as Book[];
+      }
+    )
+  }
+  constructor(private authorService:AuthorService) { }
 
   ngOnInit(): void {
   }

@@ -29,9 +29,12 @@ export class LoginComponent implements OnInit {
       observable.subscribe(
         (response: any) => {
           console.log(response);
-          alert("Login success id : "+response)
           if(response!=0){
+            alert("Login success !")
             this.router.navigate(['/authorbooks',response]);
+          }
+          else{
+            alert("Please give valid credentials")
           }
         }, function(error){
           console.log(error);
@@ -48,9 +51,12 @@ export class LoginComponent implements OnInit {
       observable.subscribe(
         (response: any) => {
           console.log(response);
-          alert("Login success id : "+response)
           if(response!=0){
+            alert("Login success !")
             this.router.navigate(['/readerbooks',response,this.emailId]);
+          }
+          else{
+            alert("Please give valid credentials")
           }
         }, function(error){
           console.log(error);

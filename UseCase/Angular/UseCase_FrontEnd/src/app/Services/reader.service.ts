@@ -5,6 +5,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ReaderService {
+
+  registerReader(reader: {
+    readerName:string,
+    emailId:string,
+    readerPassword:string
+  })
+  {
+   return this.httpClient.post("http://localhost:9091/api/v1/digitalbooks/reader/register",reader);
+  }
+
   loginReader(reader:{
     readerName:string,
     emailId:string,
@@ -33,5 +43,7 @@ export class ReaderService {
   check(readerId,bookId){
     return this.httpClient.get("http://localhost:9091/api/v1/digitalbooks/check/"+readerId+"/"+bookId);
   }
+
+  
   constructor(private httpClient:HttpClient) { }
 }

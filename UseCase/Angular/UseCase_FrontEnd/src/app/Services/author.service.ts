@@ -51,5 +51,28 @@ export class AuthorService {
   createbook(book,authorId){
     return this.httpClient.post("http://localhost:9091/api/v1/digitalbooks/userservice/author/createbook/"+authorId,book)
   }
+  updateBook(authorId,bookId,book){
+    console.log(bookId)
+    console.log(authorId)
+    console.log(book)
+    return this.httpClient.put("http://localhost:9091/api/v1/digitalbooks/userservice/author/edit/"+authorId+"/"+bookId,book)
+  }
+  searchbook(title,category,price:number,author,publisher){
+    let queryparams= new HttpParams();
+    queryparams.append("title",title)
+    .append("category",category)
+    .append("author",author)
+    .append("publisher",publisher)
+    .append("price",price.toString());
+    console.log(queryparams.getAll("author"));
+    //console.log(title,category,price,author,publisher)
+//return this.httpClient.get('http://localhost:9091/api/v1/digitalbooks/userservice/searchAllBooks',
+//{params:queryparams} );
+
+return this.httpClient.get("http://localhost:9091/api/v1/digitalbooks/userservice/searchAllBooks?title="
++title+"&category="+category+"&author="+author+"&publisher="+publisher+"&price="+price.toString())
+
+  }
+  
   constructor(private httpClient: HttpClient) { }
 }

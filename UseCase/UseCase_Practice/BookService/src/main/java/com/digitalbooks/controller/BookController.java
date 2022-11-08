@@ -46,7 +46,7 @@ public class BookController {
 			return updatedBook;
 		}
 		
-		@PutMapping("/author/{authorID}/books/{bookID}/")
+		@PutMapping("/author/books/{authorID}/{bookID}")
 		public Book updateBook(@PathVariable Long authorID,@PathVariable Long bookID,@RequestBody Book book) {
 			book.setAuthorID(authorID);
 			book.setBookID(bookID);

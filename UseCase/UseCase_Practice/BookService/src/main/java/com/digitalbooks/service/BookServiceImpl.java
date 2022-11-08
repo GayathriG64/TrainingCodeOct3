@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.digitalbooks.Exception.ResourceNotFoundException;
 import com.digitalbooks.entity.Book;
 import com.digitalbooks.repository.IBookRepo;
 
@@ -54,19 +53,20 @@ public class BookServiceImpl implements IBookService{
 
 	@Override
 	public Book updateBook(Book book) {
-		Optional<Book> updateBook = bookRepo.findById(book.getBookID());
-		updateBook.ifPresent(b->b.setActive(book.getActive()));
-		updateBook.ifPresent(b->b.setAuthor(book.getAuthor()));
-		updateBook.ifPresent(b->b.setCategory(book.getCategory()));
-		updateBook.ifPresent(b->b.setContent(book.getContent()));
-		updateBook.ifPresent(b->b.setPrice(book.getPrice()));
-		updateBook.ifPresent(b->b.setPublisher(book.getPublisher()));
-		updateBook.ifPresent(b->b.setPublishedDate(book.getPublishedDate()));
-		updateBook.ifPresent(b->b.setLogo(book.getLogo()));
-		updateBook.ifPresent(b-> b.setTitle(book.getTitle()));
-		Book updatedBook = updateBook.orElse(null);
-		bookRepo.save(updatedBook);
-		return updatedBook;
+		Optional<Book> updatedBook = bookRepo.findById(book.getBookID());
+		Book updateBook= updatedBook.orElseThrow();
+		updateBook.setActive(book.getActive());
+		updateBook.setAuthor(book.getAuthor());
+		updateBook.setCategory(book.getCategory());
+		updateBook.setContent(book.getContent());
+		updateBook.setPrice(book.getPrice());
+		updateBook.setPublisher(book.getPublisher());
+		updateBook.setPublishedDate(book.getPublishedDate());
+		updateBook.setLogo(book.getLogo());
+		updateBook.setTitle(book.getTitle());
+		
+		bookRepo.save(updateBook);
+		return updateBook;
 	}
 
 	@Override
