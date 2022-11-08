@@ -27,5 +27,10 @@ public class SubscribeServiceImpl implements ISubscribeService {
 		Subscription sub = subscriptionRepo.findById(subId).orElse(null);
 		return sub;
 	}
+	@Override
+	public void delete(Long subId) {
+		subscriptionRepo.deleteById(subId);
+		
+	}
 
 }

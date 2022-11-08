@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="src/app/Components/add-book/add-book.component.js"></script>
+</head>
+<body style="background-color: rgb(199, 216, 247); padding-left: 200px; padding-right: 200px;">
+  <script src="src/app/Components/add-book/add-book.component.js"></script>
+<div class="container mt-3" style="background-color: rgb(241, 241, 241);
+ padding-top: 20px;padding-left: 100px; padding-right: 100px;border-radius: 15px;">
+  <h3 style="text-align: center;border-radius: 10px; background-color:  rgb(224, 231, 249)">{{authorId}}Enter book details here and submit</h3>
+    
+  <form action="/action_page.php" #myForm="ngForm" class="was-validated" name="myform">
+
+    <div class="mb-3 mt-3">
+      <label for="bookname" class="form-label">Book Title:</label>
+      <input [(ngModel)]=book.title type="text" class="form-control" id="bookname" placeholder="Enter here" name="bookname" required>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="bookgenre" class="form-label">Book Genre:</label>
+        <input  [(ngModel)]=book.category type="text" class="form-control" id="bookgenre" placeholder="Enter here" name="bookgenre" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="bookauthor" class="form-label">Book Author:</label>
+        <input  [(ngModel)]=book.author type="text" class="form-control"  id="bookauthor" placeholder="Enter here" name="bookauthor" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="publisher" class="form-label">Book Publisher:</label>
+        <input [(ngModel)]=book.publisher type="text" class="form-control" id="publisher" placeholder="Enter here" name="publisher" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="pdate" class="form-label">Published Date:</label>
+        <input [(ngModel)]=book.publishedDate type="text" class="form-control" id="pdate" placeholder="Enter here" name="pdate" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="bookprice" class="form-label">Book Price:</label>
+        <input  [(ngModel)]=book.price type="number" class="form-control" id="bookprice" placeholder="Enter price here" name="bookprice" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="logo" class="form-label">Give logo url:</label>
+        <input [(ngModel)]=book.logo type="text" class="form-control" id="logo" placeholder="Enter here" name="logo" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="content" class="form-label">Give content of book:</label>
+        <input [(ngModel)]=book.content type="text" class="form-control" id="content" placeholder="Enter here" name="content" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+
+      <div><label>Block</label></div>
+      <div class="form-check">
+        <input  [(ngModel)]=book.active value="true" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-label" for="flexRadioDefault1">
+          No
+        </label>
+      </div>
+      <div class="form-check">
+        <input [(ngModel)]=book.active value="false" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+        <label class="form-label" for="flexRadioDefault2">
+          Yes
+        </label>
+      </div>
+
+  <button type="submit"  style="margin-bottom: 20px; " (click)="createBook()" [disabled]="!myForm.valid" class="btn btn-primary">Submit</button>
+  <button class="btn btn-secondary" (click)="goback()" style="margin-left: 500px; margin-bottom: 20px; ">
+      Click here to go back to author content</button>
+
+  </form>
+</div>
+<div>{{savedbook}}</div>
+<script src="src/app/Components/add-book/add-book.component.js"></script>
+</body>
+</html>

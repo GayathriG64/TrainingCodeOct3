@@ -36,6 +36,7 @@ export class RegisterComponent implements OnInit {
       )
     }
   }
+  
   constructor(private authorService: AuthorService,private readerService: ReaderService) { }
 
   ngOnInit(): void {

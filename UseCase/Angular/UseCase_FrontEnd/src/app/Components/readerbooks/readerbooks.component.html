@@ -1,0 +1,45 @@
+
+<div  style="padding-left: 40px;margin-top: 10px; background-color:rgb(199, 216, 247);">
+    To fetch all the books from library click here 
+    <button type="button" class="btn btn-outline-primary" (click)="getAllBooks()">
+        Get</button>
+</div>
+<div  style="padding-left: 40px;margin-top: 10px; background-color:rgb(199, 216, 247);">
+  To fetch all your subscribed books from library click here 
+  <button type="button" class="btn btn-outline-primary" (click)="getAllSubscribedBooks()">
+      Get</button>
+</div>
+
+<table class="table">
+    <thead>
+      <tr style="margin-left: 30px;">
+        <th scope="col">Book Logo</th>
+        <th scope="col">Book ID</th>
+        <th scope="col">Book Title</th>
+        <th scope="col">Book Category</th>
+        <th scope="col">Book Price</th>
+        <th scope="col">Book Author</th>
+        <th scope="col">Book Publisher</th>
+        <th scope="col">Blocked</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody style="background-color: rgb(199, 216, 247); font-family: Arial; padding-left: 5px;">
+      <tr *ngFor="let book of books;index as i">
+        <td><img src="{{book.logo}}" width="50px" height="60px"/></td>
+        <td style="padding: 25px;">{{book.bookID}}</td>
+        <td style="padding: 25px;">{{book.title}}</td>
+        <td style="padding: 25px;">{{book.category}}</td>
+        <td style="padding: 25px;">{{book.price}}</td>
+        <td style="padding: 25px;">{{book.author}}</td>
+        <td style="padding: 25px;">{{book.publisher}}</td>
+        <td style="padding: 25px;">{{book.blocked}}</td>
+        <td style="padding-top: 25px;">
+            <button type="button" class="btn btn-primary" (click)="subscribebook(book,book.bookID)">subscribe</button>
+            <button style="margin-left: 10px;" type="button" class="btn btn-primary" (click)="unsubscribe(book,book.bookID)">un-subscribe</button>
+            <button style="margin-left: 10px;" type="button" class="btn btn-primary" (click)="readBook(book.content)">Read</button>
+        </td>
+      </tr> 
+    </tbody>
+
+

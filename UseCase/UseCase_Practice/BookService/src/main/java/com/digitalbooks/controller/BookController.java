@@ -17,6 +17,8 @@ import com.digitalbooks.entity.Book;
 import com.digitalbooks.service.IBookService;
 
 @RestController
+
+@CrossOrigin("http://localhost:4200")
 @RequestMapping("/api/v1/digitalbooks")
 public class BookController {
 
@@ -36,7 +38,7 @@ public class BookController {
 			return savedBookList;
 		}
 		
-		@PutMapping("/author/{authorID}/books/{bookID}")
+		@PostMapping("/author/{authorID}/{bookID}")
 		public Book blockorunBlockABook(@PathVariable Long authorID,@PathVariable Long bookID,
 				@RequestParam(value="block",required =true) String block  ) {
 			System.out.println(bookID+block);
@@ -52,9 +54,17 @@ public class BookController {
 			return savedBook;
 		}
 		
-		@CrossOrigin("http://localhost:4200")
 		@GetMapping("getBook/{id}")
 		public Book getBookByID(@PathVariable Long id) {
 			return bookService.getBookByID(id);	
+		}
+		@GetMapping("/getBooks/{authorId}")
+		public List<Book> getBooksByAuthorID(@PathVariable Long authorId) {
+			return bookService.getBooksByAuhtorID(authorId);	
+		}
+		
+		@GetMapping("/getAllBooks")
+		public List<Book> getAllBooks() {
+			return bookService.getAllBooks();	
 		}
 }

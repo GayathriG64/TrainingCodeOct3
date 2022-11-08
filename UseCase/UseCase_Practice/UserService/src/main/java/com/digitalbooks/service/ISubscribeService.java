@@ -8,4 +8,5 @@ public interface ISubscribeService {
 	public List <Subscription> getSubscriptionByReaderId(Long readerId);
 	public Subscription saveSubscription(Subscription sub);
 	public Subscription getSubscriptionBySubscriptionId(Long subId);
+	public void delete(Long subId);
 }

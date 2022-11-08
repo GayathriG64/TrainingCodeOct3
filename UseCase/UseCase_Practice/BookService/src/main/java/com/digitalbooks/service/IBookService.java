@@ -11,4 +11,7 @@ public interface IBookService {
 	public Book blockBook(Long bookId,String block);
 	public Book updateBook(Book book);
 	public Book getBookByID(Long id);
+	public List<Book> getBooksByAuhtorID(Long authorId);
+	public List<Book> getAllBooks();
+	
 }

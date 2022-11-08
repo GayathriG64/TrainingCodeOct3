@@ -1,6 +1,7 @@
 <!-- <section class="h-1000 gradient-form gradient-custom-4" style="background-color: #eee;"> -->
-  <body style="background-color: #151b3f;">
-    <div class="container py-1 h-10 " style="background-color: #61112e;">
+  <body style="background-color: #151b3f; padding-top: 10px;
+  background-image: url('https://www.pixelstalk.net/wp-content/uploads/images6/Black-Background-Free-Download-620x388.jpg');">
+    <div class="container py-1 h-10 " style="background-color: #290d17;">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-xl-10">
           <div class="card rounded-3 text-black">
@@ -17,26 +18,26 @@
                     <p>Please login to your account</p>
                     
                     <div class="form-outline mb-4">
-                      <input type="email" id="form2Example11" class="form-control"
-                        placeholder="Enter user name or email id" />
+                      <input [(ngModel)]= emailId type="email" id="form2Example11" class="form-control" name="username"
+                        placeholder="Enter email id" />
                       <label class="form-label" for="form2Example11">Username</label>
                     </div>
   
                     <div class="form-outline mb-4">
-                      <input type="password" id="form2Example22" class="form-control" />
+                      <input [(ngModel)]=password type="password" id="form2Example22" class="form-control" name="password"/>
                       <label class="form-label" for="form2Example22">Password</label>
                     </div>
                     
                     <div class="form-outline mb-4" style="margin-bottom: 5px;">
                       Login as :
                       <div class="form-check" style="margin-left: 100px;">
-                        <input value="author" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                        <input [(ngModel)]=role value="author" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                         <label class="form-label" for="flexRadioDefault1">
                           Author
                         </label>
                       </div>
                       <div class="form-check" style="margin-left: 100px;">
-                        <input value="reader" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                        <input [(ngModel)]=role  value="reader" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
                         <label class="form-label" for="flexRadioDefault2">
                           Reader
                         </label>
@@ -44,7 +45,7 @@
                     </div>
                     
                     <div class="text-center pt-1 mb-5 pb-1">
-                      <button class="btn btn-primary btn-block fa-lg gradient-custom-4 mb-3" type="button">Log
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-4 mb-3" type="button" (click)="login()">Log
                         in</button>
                     <br/>
                       <a class="text-muted" href="#!">Forgot password?</a>

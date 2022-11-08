@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
 public class Book {
@@ -20,24 +19,39 @@ public class Book {
 	String publishedDate;
 	String content;
 	Boolean active;
-	Long SubscriptionID;
-	Long AuthorID;
-	Long ReaderID;
+	Long subscriptionID;
+	Long authorID;
+	Long readerID;
 	String subscribed;
 	String blocked;
 	
 	String logo;
 	
-	public Book(String title, String category, Double price, String author, String publisher, String publishedDate,
+	public Book(String title, String category, Double price,Long AuthorID, String author, String publisher, String publishedDate,
 			String content, Boolean active, String logo) {
 		this.title = title;
 		this.category = category;
 		this.price = price;
+		this.authorID=AuthorID;
 		this.author = author;
 		this.publisher = publisher;
 		this.publishedDate = publishedDate;
 		this.content = content;
 		this.active = active;
+		this.logo = logo;
+	}
+	
+	public Book(String title, String category, Double price,Long AuthorID, String author, String publisher, String publishedDate,
+			String content, String logo) {
+		this.title = title;
+		this.category = category;
+		this.price = price;
+		this.authorID=AuthorID;
+		this.author = author;
+		this.publisher = publisher;
+		this.publishedDate = publishedDate;
+		this.content = content;
+		this.active = true;
 		this.logo = logo;
 	}
 	public Book() {
@@ -50,25 +64,25 @@ public class Book {
 		this.logo = logo;
 	}
 	public Long getSubscriptionID() {
-		return SubscriptionID;
+		return subscriptionID;
 	}
 	public Long getAuthorID() {
-		return AuthorID;
+		return authorID;
 	}
 	public Long getReaderID() {
-		return ReaderID;
+		return readerID;
 	}
 	public String getBlocked() {
 		return blocked;
 	}
 	public void setSubscriptionID(Long subscriptionID) {
-		SubscriptionID = subscriptionID;
+		this.subscriptionID = subscriptionID;
 	}
 	public void setAuthorID(Long authorID) {
-		AuthorID = authorID;
+		this.authorID = authorID;
 	}
 	public void setReaderID(Long readerID) {
-		ReaderID = readerID;
+		this.readerID = readerID;
 	}
 	public void setBlocked(String blocked) {
 		this.blocked = blocked;
@@ -137,8 +151,26 @@ public class Book {
 	public String toString() {
 		return "Book [bookID=" + bookID + ", title=" + title + ", category=" + category + ", price=" + price
 				+ ", author=" + author + ", publisher=" + publisher + ", publishedDate=" + publishedDate + ", content="
-				+ content + ", active=" + active + ", SubscriptionID=" + SubscriptionID + ", AuthorID=" + AuthorID
-				+ ", ReaderID=" + ReaderID + ", subscribed=" + subscribed + ", blocked=" + blocked + "]";
+				+ content + ", active=" + active + ", SubscriptionID=" + subscriptionID + ", AuthorID=" + authorID
+				+ ", ReaderID=" + readerID + ", subscribed=" + subscribed + ", blocked=" + blocked + "]";
+	}
+
+	public Book(String title, String category, Double price, String author, String publisher, String publishedDate,
+			String content, Boolean active, Long subscriptionID, Long authorID, Long readerID, String subscribed,
+			String blocked, String logo) {
+		super();
+		this.title = title;
+		this.category = category;
+		this.price = price;
+		this.author = author;
+		this.publisher = publisher;
+		this.publishedDate = publishedDate;
+		this.content = content;
+		this.active = active;
+		this.subscriptionID = subscriptionID;
+		this.authorID = authorID;
+		this.subscribed = subscribed;
+		this.logo = logo;
 	}
 	
 

@@ -8,13 +8,23 @@ import { RegisterComponent } from './Components/register/register.component';
 import { LoginComponent } from './Components/login/login.component';
 import { HomeComponent } from './Components/home/home.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { ReaderbooksComponent } from './Components/readerbooks/readerbooks.component';
+import { AuthorbooksComponent } from './Components/authorbooks/authorbooks.component';
+import { BookContentsComponent } from './Components/book-contents/book-contents.component';
+import { CreatebookComponent } from './Components/createbook/createbook.component';
+import { SubscribedbooksComponent } from './Components/subscribedbooks/subscribedbooks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ReaderbooksComponent,
+    AuthorbooksComponent,
+    BookContentsComponent,
+    CreatebookComponent,
+    SubscribedbooksComponent
   ],
   imports: [
     BrowserModule,

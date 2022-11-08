@@ -75,6 +75,16 @@ public class BookServiceImpl implements IBookService{
 		Book book =bookRepo.findById(id).orElse(null);
 		return book ;
 	}
+
+	@Override
+	public List<Book> getBooksByAuhtorID(Long authorId) {
+		return bookRepo.findByAuthorID(authorId);
+	}
+
+	@Override
+	public List<Book> getAllBooks() {
+		return bookRepo.findAll();
+	}
 	
 
 	
