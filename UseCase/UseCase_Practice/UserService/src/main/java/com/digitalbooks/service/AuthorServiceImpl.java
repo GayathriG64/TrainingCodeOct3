@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.digitalbooks.entity.Author;
+import com.digitalbooks.entity.Book;
 import com.digitalbooks.repository.IAuthorRepo;
 
 @Service
@@ -21,5 +22,6 @@ public class AuthorServiceImpl implements IAuthorService {
 		Author author= authorRepo.findByAuthoremailId(emaild);
 		return author;
 	}
+	
 	
 }

@@ -13,5 +13,6 @@ public interface IBookService {
 	public Book getBookByID(Long id);
 	public List<Book> getBooksByAuhtorID(Long authorId);
 	public List<Book> getAllBooks();
+	public List<Book> searchBook(String title,String category,Double price,String author,String publisher);
 	
 }

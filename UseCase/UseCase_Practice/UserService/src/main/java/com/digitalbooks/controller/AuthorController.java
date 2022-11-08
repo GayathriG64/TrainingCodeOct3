@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -85,6 +86,8 @@ public class AuthorController {
 		return book.getActive();
 	}
 	
+	
+	
 	@PostMapping("/author/createbook/{authorId}")
 	public Book saveBookByAuthor(@PathVariable Long authorId,@RequestBody Book book){
 		Map<String,Long> params = new HashMap<String,Long>();
@@ -98,5 +101,25 @@ public class AuthorController {
 			System.out.println(e.getMessage());
 		}
 		return null;
+	}
+	
+	@GetMapping("/searchAllBooks")
+	public List<Book> searchAllBooks(@RequestParam("title") String title,
+			@RequestParam("category") String category,
+			@RequestParam("author") String author,
+			@RequestParam("publisher") String publisher,
+			@RequestParam("price") Double price
+			) {
+	//	Book book=userService.searchBook(title,category,price,author,publisher);
+		Map<String,String> params = new HashMap<String,String>();
+		params.put("title",title);
+		params.put("category",category);
+		params.put("author",author);
+		params.put("publisher",publisher);
+
+		List<Book> books=restTemplate.getForObject("http://localhost:8090/api/v1/digitalbooks/searchAllBooks/{title}/{category}/{author}/{publisher}/"+price,
+				List.class, params);
+		//List<Book> bookList=books.getBody();
+		return books;
 	}
 }

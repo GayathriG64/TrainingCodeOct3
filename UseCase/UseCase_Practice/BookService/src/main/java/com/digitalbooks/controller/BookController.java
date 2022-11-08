@@ -67,4 +67,15 @@ public class BookController {
 		public List<Book> getAllBooks() {
 			return bookService.getAllBooks();	
 		}
+		
+		@GetMapping("/searchAllBooks/{title}/{category}/{author}/{publisher}/{price}")
+		public List<Book> searchAllBooks(@PathVariable String title,
+				@PathVariable String category,
+				@PathVariable String author,
+				@PathVariable String publisher,
+				@PathVariable Double price
+				) {
+			List<Book> book=bookService.searchBook(title,category,price,author,publisher);
+			return book;
+		}
 }

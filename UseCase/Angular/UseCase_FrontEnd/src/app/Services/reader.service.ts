@@ -30,6 +30,8 @@ export class ReaderService {
   unsubscribeBook(readerId,bookId){
     return this.httpClient.post("http://localhost:9091/api/v1/digitalbooks/unsubscribe/"+readerId+"/"+bookId,null);
   }
-
+  check(readerId,bookId){
+    return this.httpClient.get("http://localhost:9091/api/v1/digitalbooks/check/"+readerId+"/"+bookId);
+  }
   constructor(private httpClient:HttpClient) { }
 }

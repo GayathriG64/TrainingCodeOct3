@@ -35,9 +35,9 @@
         <td style="padding: 25px;">{{book.publisher}}</td>
         <td style="padding: 25px;">{{book.blocked}}</td>
         <td style="padding-top: 25px;">
-            <button type="button" class="btn btn-primary" (click)="subscribebook(book,book.bookID)">subscribe</button>
-            <button style="margin-left: 10px;" type="button" class="btn btn-primary" (click)="unsubscribe(book,book.bookID)">un-subscribe</button>
-            <button style="margin-left: 10px;" type="button" class="btn btn-primary" (click)="readBook(book.content)">Read</button>
+            <button type="button" [disabled]="book.blocked=='yes'" class="btn btn-primary" (click)="subscribebook(book,book.bookID)">subscribe</button>
+            <button style="margin-left: 10px;" [disabled]="book.blocked=='yes'" type="button" class="btn btn-primary" (click)="unsubscribe(book,book.bookID)">un-subscribe</button>
+            <button style="margin-left: 10px;" [disabled]="book.blocked=='yes'" type="button" class="btn btn-primary" (click)="readBook(book.bookID,book.content)">Read</button>
         </td>
       </tr> 
     </tbody>

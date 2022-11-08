@@ -13,6 +13,7 @@ import { AuthorbooksComponent } from './Components/authorbooks/authorbooks.compo
 import { BookContentsComponent } from './Components/book-contents/book-contents.component';
 import { CreatebookComponent } from './Components/createbook/createbook.component';
 import { SubscribedbooksComponent } from './Components/subscribedbooks/subscribedbooks.component';
+import { SearchbookComponent } from './Components/searchbook/searchbook.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SubscribedbooksComponent } from './Components/subscribedbooks/subscribe
     AuthorbooksComponent,
     BookContentsComponent,
     CreatebookComponent,
-    SubscribedbooksComponent
+    SubscribedbooksComponent,
+    SearchbookComponent
   ],
   imports: [
     BrowserModule,

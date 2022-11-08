@@ -46,14 +46,27 @@ export class ReaderbooksComponent implements OnInit {
       if(response==1){
         alert("Book: "+bookId+" has been unsubscribed.");
       }
+      else if(response==2){
+        alert("Book can only be unsubscribed within 24 hours");
+      }
       else{
         alert("Please subscribe the book first.");
       }
     }
   )
   }
-  readBook(content){
-    this.router.navigate(['/bookcontent',content]);
+  readBook(bookid,content){
+    const observable=this.readerService.check(this.readerId,bookid);
+    observable.subscribe(
+      (response)=>{
+        console.log(response);
+        if(response==1){
+          this.router.navigate(['/bookcontent',content]);
+          }
+        else{
+          alert("You can only read your subscribed books.Please subscribe to read this book with id: "+bookid);
+        }
+      });
   }
   getAllBooks(){
     const observable= this.readerService.getAllBooks(this.emailId);

@@ -6,6 +6,7 @@ import { CreatebookComponent } from './Components/createbook/createbook.componen
 import { LoginComponent } from './Components/login/login.component';
 import { ReaderbooksComponent } from './Components/readerbooks/readerbooks.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { SearchbookComponent } from './Components/searchbook/searchbook.component';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:"authorbooks/:authorId",component:AuthorbooksComponent},
   {path:"readerbooks/:readerId/:emailId",component:ReaderbooksComponent},
   {path:"bookcontent/:content",component:BookContentsComponent},
-  {path:"createbook/:authorId",component:CreatebookComponent}
+  {path:"createbook/:authorId",component:CreatebookComponent},
+  {path:"searchbook",component:SearchbookComponent}
 ];
 
 @NgModule({

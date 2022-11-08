@@ -85,6 +85,13 @@ public class BookServiceImpl implements IBookService{
 	public List<Book> getAllBooks() {
 		return bookRepo.findAll();
 	}
+
+	@Override
+	public List<Book> searchBook(String title, String category, Double price, String author, String publisher) {
+		// TODO Auto-generated method stub
+		List<Book> books= bookRepo.searchBook(title,category,price,author,publisher);
+		return books;
+	}
 	
 
 	

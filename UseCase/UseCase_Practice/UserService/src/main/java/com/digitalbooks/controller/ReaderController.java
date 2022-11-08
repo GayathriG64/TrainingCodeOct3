@@ -1,5 +1,6 @@
 package com.digitalbooks.controller;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -132,7 +133,23 @@ public class ReaderController {
 				.forEach(s-> {sub1.add(s);} );
 		if(!sub1.isEmpty()) {
 			Subscription sub =sub1.get(0);
-			subscribedService.delete(sub.getSubscriptionID());
+			java.time.LocalDateTime now =java.time.LocalDateTime.now();  
+			if(now.compareTo(sub.getSubscribedTime())<=1 && now.compareTo(sub.getSubscribedTime())>=-1 )
+				subscribedService.delete(sub.getSubscriptionID());
+			else
+				return 2L;
+			return 1L;
+		}
+		return 0L;
+	}
+	
+	@GetMapping("/check/{readerId}/{bookid}")
+	public Long checkBook(@PathVariable Long readerId,@PathVariable Long bookid) {
+		List<Subscription> subList= subscribedService.getSubscriptionByReaderId(readerId);
+		List<Subscription> sub1=new ArrayList<Subscription>();
+		subList.stream().filter(s-> s.getBookId()==bookid)
+				.forEach(s-> {sub1.add(s);} );
+		if(!sub1.isEmpty()) {
 			return 1L;
 		}
 		return 0L;
