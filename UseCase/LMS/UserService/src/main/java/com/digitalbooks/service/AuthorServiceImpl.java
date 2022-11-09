@@ -1,5 +1,7 @@
 package com.digitalbooks.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +20,8 @@ public class AuthorServiceImpl implements IAuthorService {
 		return createdAuthor.getAuthorID();
 	}
 	@Override
-	public Author getAuthorByemailID(String emaild) {
-		Author author= authorRepo.findByAuthoremailId(emaild);
+	public List<Author> getAuthorByemailID(String emailId) {
+		List<Author> author= authorRepo.findByAuthoremailId(emailId);
 		return author;
 	}
 	

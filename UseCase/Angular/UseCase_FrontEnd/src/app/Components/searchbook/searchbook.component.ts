@@ -19,6 +19,9 @@ export class SearchbookComponent implements OnInit {
       (response)=>{
      // console.log(response);
       this.books=response as Book[];
+      if(this.books.length==0){
+          alert("No such book found");
+      }
       }
     )
   }

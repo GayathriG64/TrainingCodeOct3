@@ -20,6 +20,10 @@ export class AuthorbooksComponent implements OnInit {
       (response)=>{
         console.log(response)
           this.books=response as Book[];
+          if(this.books.length==0)
+          {
+            alert("You have not created any books yet.");
+          }
       }
     )
     console.log(this.books);

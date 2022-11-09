@@ -21,7 +21,8 @@ import com.digitalbooks.entity.Author;
 import com.digitalbooks.entity.Book;
 import com.digitalbooks.service.IAuthorService;
 
-@CrossOrigin(origins = "http://localhost:4200/")
+//@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin("*")
 @RequestMapping("/api/v1/digitalbooks/userservice")
 @RestController
 public class AuthorController {
@@ -48,7 +49,11 @@ public class AuthorController {
 	
 	@PostMapping("/author/login")
 	public Long authorLogin(@RequestBody Author author) {
-		Author realAuthor = userService.getAuthorByemailID(author.getAuthoremailId());
+		List<Author> realAuthorList = userService.getAuthorByemailID(author.getAuthoremailId());
+		System.out.println(realAuthorList);
+		if(realAuthorList.isEmpty())
+			return 0L;
+		Author realAuthor = realAuthorList.get(0);
 		if(realAuthor.getAuthorPassword().equals(author.getAuthorPassword()))
 			return realAuthor.getAuthorID();
 		return 0L;
@@ -61,7 +66,7 @@ public class AuthorController {
 		//http://localhost:8090/api/v1/digitalbooks/2/getBooks
 		return book;
 	}
-	@CrossOrigin(origins = "http://localhost:4200/")
+	@CrossOrigin("*")
 	@PostMapping("author/block/{authorId}/{bookId}")
 	public Boolean blockBook(@PathVariable Long authorId,@PathVariable Long bookId) {
 		Map<String,Long> params = new HashMap<String,Long>();
@@ -74,7 +79,7 @@ public class AuthorController {
 		
 		return book.getActive();
 	}
-	@CrossOrigin(origins = "http://localhost:4200/")
+	@CrossOrigin("*")
 	@PostMapping("author/unblock/{authorId}/{bookId}")
 	public Boolean unBlockBook(@PathVariable Long authorId,@PathVariable Long bookId) {
 		Map<String,Long> params = new HashMap<String,Long>();

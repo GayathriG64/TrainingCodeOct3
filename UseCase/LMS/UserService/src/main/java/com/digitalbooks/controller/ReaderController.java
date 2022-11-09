@@ -27,7 +27,7 @@ import com.digitalbooks.service.ISubscribeService;
 
 @RestController
 
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin("*")
 @RequestMapping("/api/v1/digitalbooks")
 public class ReaderController {
 	@Autowired
@@ -38,7 +38,7 @@ public class ReaderController {
 	@Autowired
 	RestTemplate restTemplate;
 	
-	@CrossOrigin(origins = "http://localhost:4200/")
+	@CrossOrigin("*")
 	@PostMapping("/subscribe/{readerId}/{bookid}")
 	public Long subscribeBook(@PathVariable Long readerId,@PathVariable Long bookid) {
 		
@@ -125,6 +125,8 @@ public class ReaderController {
 	@PostMapping("reader/login")
 	public Long loginReader(@RequestBody Reader reader ) {
 		Reader realReader = readerService.getReaderByEmailId(reader.getEmailId());
+		if(realReader==null)
+			return 0L;
 		if(realReader.getReaderPassword().equals(reader.getReaderPassword()))
 			return realReader.getReaderId();
 		return 0L;

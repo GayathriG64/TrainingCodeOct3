@@ -18,7 +18,7 @@ import com.digitalbooks.service.IBookService;
 
 @RestController
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("*")
 @RequestMapping("/api/v1/digitalbooks")
 public class BookController {
 
