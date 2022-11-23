@@ -8,7 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Book {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long bookID;
 	
 	String title;

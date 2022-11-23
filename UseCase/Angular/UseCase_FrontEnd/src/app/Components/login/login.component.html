@@ -14,18 +14,20 @@
                     <h4 class="mt-1 mb-5 pb-1">Login to Book Library</h4>
                   </div>
   
-                  <form>
+                  <form class="was-validated">
                     <p>Please login to your account</p>
                     
                     <div class="form-outline mb-4">
-                      <input [(ngModel)]= emailId type="email" id="form2Example11" class="form-control" name="username"
+                      <input required [(ngModel)]= emailId type="email" id="form2Example11" class="form-control" name="username"
                         placeholder="Enter email id" />
                       <label class="form-label" for="form2Example11">Username</label>
+                      <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
   
                     <div class="form-outline mb-4">
-                      <input [(ngModel)]=password type="password" id="form2Example22" class="form-control" name="password"/>
+                      <input required password type="password" id="form2Example22" class="form-control" name="password"/>
                       <label class="form-label" for="form2Example22">Password</label>
+                      <div class="invalid-feedback">Please fill out this field.</div>
                     </div>
                     
                     <div class="form-outline mb-4" style="margin-bottom: 5px;">
