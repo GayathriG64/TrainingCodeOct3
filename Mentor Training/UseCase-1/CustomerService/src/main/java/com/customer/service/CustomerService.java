@@ -9,5 +9,9 @@ public interface CustomerService {
 
 	public String validateLoginRequest(LoginRequest request);
 
-	public String updateCustomerRequest(UpdateRequest request);
+	public String updateCustomerRequest(UpdateRequest request,String username);
+
+	public boolean checkUsername(String username);
+	
+	public Long getAccountId(String username);
 }

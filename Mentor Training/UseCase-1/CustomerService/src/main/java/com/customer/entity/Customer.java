@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Customer {
 	@Id
-	@SequenceGenerator(name ="seq" , initialValue = 1122330)
+	@SequenceGenerator(name ="seq" , initialValue = 1022330000)
 	@GeneratedValue( generator = "seq")
 	private Long AccountId;
 	private String name;
@@ -139,6 +139,12 @@ public class Customer {
 		this.phoneNo = phoneNo;
 		this.dob = dob;
 		this.accType = accType;
+	}
+	@Override
+	public String toString() {
+		return "Customer [AccountId=" + AccountId + ", name=" + name + ", username=" + username + ", password="
+				+ password + ", address=" + address + ", state=" + state + ", country=" + country + ", email=" + email
+				+ ", pan=" + pan + ", phoneNo=" + phoneNo + ", dob=" + dob + ", accType=" + accType + "]";
 	}
 	
 }

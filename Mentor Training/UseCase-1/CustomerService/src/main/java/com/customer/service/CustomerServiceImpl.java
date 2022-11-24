@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.customer.entity.Customer;
+import com.customer.entity.Loan;
 import com.customer.exception.ResourceExists;
 import com.customer.exception.ResourceNotFoundException;
 import com.customer.model.LoginRequest;
@@ -25,7 +26,7 @@ public class CustomerServiceImpl implements CustomerService {
 			&& custRepo.findByEmail(customer.getEmail()).isEmpty())
 			savedCustomer= custRepo.save(customer);
 		else
-			throw new ResourceExists("Customer");
+			throw new ResourceExists("Customer");		
 		return savedCustomer.getAccountId();
 	}
 	@Override
@@ -40,10 +41,36 @@ public class CustomerServiceImpl implements CustomerService {
 		else 
 			return "Please enter correct password.";
 	}
+	
 	@Override
-	public String updateCustomerRequest(UpdateRequest request) {
-		// TODO Auto-generated method stub
-		return null;
+	public String updateCustomerRequest(UpdateRequest request, String username)
+	{
+		List<Customer> customer = custRepo.findByUsername(username);
+		Customer updateCustomer= customer.get(0);
+		updateCustomer.setAddress(request.getAddress());
+		updateCustomer.setCountry(request.getCountry());
+		updateCustomer.setEmail(request.getEmail());
+		updateCustomer.setState(request.getState());
+		updateCustomer.setPhoneNo(request.getPhoneNo());
+		updateCustomer.setName(request.getName());
+		Customer savedCustomer= custRepo.save(updateCustomer);
+		return savedCustomer.toString();
+	}
+	@Override
+	public boolean checkUsername(String username) {
+		
+		if(custRepo.findByUsername(username).isEmpty())
+			return true;		
+		return false;
+	}
+	@Override
+	public Long getAccountId(String username) {
+		List<Customer> loanList = custRepo.findByUsername(username);
+		if(loanList.isEmpty())
+			return 0L;
+		else
+			return loanList.get(0).getAccountId();
+
 	}
 	
 
