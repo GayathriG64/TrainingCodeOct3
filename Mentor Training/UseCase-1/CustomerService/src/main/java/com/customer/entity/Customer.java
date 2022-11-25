@@ -16,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class Customer {
 	@Id
-	@SequenceGenerator(name ="seq" , initialValue = 1022330000)
-	@GeneratedValue( generator = "seq")
+	@SequenceGenerator(name ="CustSeq" , initialValue = 1022330000)
+	@GeneratedValue( generator = "CustSeq")
 	private Long AccountId;
 	private String name;
 	private String username;

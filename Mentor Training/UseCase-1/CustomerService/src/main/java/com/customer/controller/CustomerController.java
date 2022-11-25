@@ -68,7 +68,7 @@ public class CustomerController {
 		return name;
 	}
 	
-	@PostMapping("/customer/check/{username}")
+	@GetMapping("/customer/check/{username}")
 	public Boolean checkUsername(@PathVariable String username)
 	{
 		if(customerService.checkUsername(username)) {

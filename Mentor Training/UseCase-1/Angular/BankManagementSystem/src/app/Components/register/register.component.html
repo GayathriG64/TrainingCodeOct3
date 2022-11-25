@@ -1,0 +1,117 @@
+<div>
+<body>
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+<form class="was-validated">
+    <div class="form-outline mb-4">
+        <input [(ngModel)]=registerRequest.name required type="text" id="form3Example1cg" class="form-control form-control-lg" name="name" />
+        <label class="form-label" for="form3Example1cg">Your Name</label>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+    <div class="form-outline mb-4">
+        <input [(ngModel)]=registerRequest.email required type="email" id="form3Example3cg" class="form-control form-control-lg" name="emailId" />
+        <label class="form-label" for="form3Example3cg">Your Email</label>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    
+    <div class="form-outline mb-4">
+        <input [(ngModel)]=registerRequest.username required type="text" id="form3Example2cg" class="form-control form-control-lg" name="username" 
+        on-focusout= "checkUserName()"
+        />
+        <label class="form-label" for="form3Example5cg">Enter User Name (should be unique for you)</label>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-outline mb-4">
+        <input [(ngModel)]=registerRequest.password required type="password" id="form3Example4cdg" class="form-control form-control-lg" name="password" />
+        <label class="form-label" for="form3Example4cdg">Enter password</label>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+    <div class="form-outline mb-4" style="margin-bottom: 5px;">
+        Account type :
+        <div class="form-check" style="margin-left: 100px;">
+            <input [(ngModel)]=registerRequest.accType required value="savings" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+            checked >
+            <label class="form-label" for="flexRadioDefault1">
+                Savings
+            </label>
+            
+        </div>
+        <div class="form-check" style="margin-left: 100px;">
+            <input [(ngModel)]=registerRequest.accType required value="current" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+            <label class="form-label" for="flexRadioDefault2">
+                Current
+            </label>
+        </div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+    <div class="form-outline mb-4">
+        <input [(ngModel)]=registerRequest.country required type="text" id="form3Example5cg" class="form-control form-control-lg" name="country" />
+        <label class="form-label" for="form3Example1cg">Country</label>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-outline mb-4">
+        <input [(ngModel)]=registerRequest.state required type="text" id="form3Example6cg" class="form-control form-control-lg" name="state" />
+        <label class="form-label" for="form3Example1cg">State</label>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-outline mb-4">
+        <input [(ngModel)]=registerRequest.address required type="text" id="form3Example7cg" class="form-control form-control-lg" name="adress" />
+        <label class="form-label" for="form3Example1cg">Address</label>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+    <div class="form-outline mb-4">
+        <input [(ngModel)]=registerRequest.phoneNo required type="number" id="form3Example8cg" class="form-control form-control-lg" name="phoneno" />
+        <label class="form-label" for="form3Example1cg">Phone Number</label>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-outline mb-4">
+        <input [(ngModel)]=registerRequest.pan required type="text" id="form3Example9cg" class="form-control form-control-lg" name="pan" />
+        <label class="form-label" for="form3Example1cg">Your PAN</label>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+    <div class="form-outline mb-4">
+        <input [(ngModel)]=registerRequest.dob required type="date" id="form3Example10cg" class="form-control form-control-lg" name="dob" 
+        placeholder="Enter in dd-mm-yyyy format"
+        />
+        <label class="form-label" for="form3Example1cg">Your DateOfBirth</label>
+        <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+    <!--
+<div class="form-check d-flex justify-content-center mb-5">
+ <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+<label class="form-check-label" for="form2Example3g">
+ I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a> 
+</label>
+</div>
+  -->
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+        (click)="register()"
+        >
+            Register</button>
+    </div>
+
+    <p class="text-center text-muted mt-5 mb-0">Have already an account? <a routerLink="/login"
+            class="fw-bold text-body"><u>Login here</u></a></p>
+
+</form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</div>

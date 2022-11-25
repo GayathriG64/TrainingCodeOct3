@@ -20,7 +20,7 @@ public class CustomerServiceImpl implements CustomerService {
 	CustomerRepo custRepo;
 	@Override
 	public Long saveCustomer(Customer customer) {
-		// TODO Auto-generated method stub
+		
 		Customer savedCustomer = new Customer();
 		if(custRepo.findByUsername(customer.getUsername()).isEmpty()
 			&& custRepo.findByEmail(customer.getEmail()).isEmpty())
@@ -36,7 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
 			throw new ResourceNotFoundException("Customer","username" , request.getUsername());
 		}
 		else if (custList.get(0).getPassword().equals(request.getPassword())) {
-			return custList.get(0).getName();
+			return "Welcome! "+custList.get(0).getName()+"!";
 		}
 		else 
 			return "Please enter correct password.";
@@ -60,8 +60,8 @@ public class CustomerServiceImpl implements CustomerService {
 	public boolean checkUsername(String username) {
 		
 		if(custRepo.findByUsername(username).isEmpty())
-			return true;		
-		return false;
+			return false;		
+		return true;
 	}
 	@Override
 	public Long getAccountId(String username) {
