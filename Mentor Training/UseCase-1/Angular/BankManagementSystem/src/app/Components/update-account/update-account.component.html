@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="background-color: rgb(199, 216, 247); padding-left: 200px; padding-right: 200px;">
+ 
+<div class="container mt-4" style="background-color: rgb(151, 189, 221);
+margin-left: 100px ; margin-right: 100px ;
+ padding-top: 20px;padding-left: 100px; padding-right: 100px;border-radius: 15px;">
+  <h3 style="text-align: center;border-radius: 10px; background-color:  rgb(224, 231, 249)">Update details here and submit</h3>
+ <div style="text-align: center; background-color: rgb(199, 216, 247);">
+  <h5>{{response}}</h5>
+  <h6>Your username: {{username}}</h6>
+  </div>
+
+  <form action="/action_page.php" #myForm="ngForm" class="was-validated" name="myform">
+
+    <div class="mb-3 mt-3"> 
+      <label for="name" class="form-label">Name :</label>
+      <input [(ngModel)]=request.name type="text" class="form-control" id="name" 
+      placeholder="Enter here" name="name" required>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
+
+    <div class="mb-3 mt-3">
+        <label for="bookgenre" class="form-label">Address :</label>
+        <input [(ngModel)]=request.address type="text" class="form-control" id="bookgenre" 
+        placeholder="Enter here" name="bookgenre" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="bookauthor" class="form-label">State :</label>
+        <input [(ngModel)]=request.state type="text" class="form-control" id="bookauthor" 
+        placeholder="Enter here" name="bookauthor" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="country" class="form-label">Country :</label>
+        <input [(ngModel)]=request.country type="text" class="form-control" id="country" 
+        placeholder="Enter here" name="country" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="email" class="form-label">email :</label>
+        <input [(ngModel)]=request.email type="email" class="form-control" id="email" 
+        placeholder="Enter here" name="email" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label for="phoneNo" class="form-label">Phone Number:</label>
+        <input [(ngModel)]=request.phoneNo type="number" class="form-control" 
+        id="phoneNo" placeholder="Enter price here" name="phoneNo" required>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+  
+
+  <button type="submit"  style="margin-bottom: 20px; "  [disabled]="!myForm.valid" 
+  class="btn btn-primary"
+  (click)="updateAccount()"
+  >Submit</button>
+  <button class="btn btn-secondary" (click)="goback()" 
+  style="margin-left: 600px; margin-bottom: 20px; ">
+      Click here to go back to Account Page</button>
+
+  </form>
+</div>
+
+<script src="src/app/Components/add-book/add-book.component.js"></script>
+</body>
+</html>

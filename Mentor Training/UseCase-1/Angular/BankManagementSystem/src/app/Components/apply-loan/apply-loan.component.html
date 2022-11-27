@@ -1,0 +1,65 @@
+<div>
+
+    <body>
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center mb-5">Apply Loan</h2>
+
+                                <form class="was-validated">
+
+                                    <div class="d-flex justify-content-center" name ="dropdown">
+                                        <div>Loan Type </div> 
+                                        <select style="margin-left: 10px;  color: brown; " [(ngModel)]=applyLoanRequest.loanType name="loanType">
+                                            <option value="Car Loan">Car Loan</option>
+                                            <option value="House Loan">House Loan</option>
+                                            <option value="Educational Loan">Educational Loan</option>
+                                            <option value="Crop Loan">Crop Loan</option>
+                                        </select>
+                                    </div>
+                                    <br/>
+                                    <div class="d-flex justify-content-center" name ="dropdown">
+                                       <div  class="d-flex justify-content-center">Rate Of Interest </div> 
+                                        <select style="margin-left:10px; color: brown;" [(ngModel)]=applyLoanRequest.rateOfInterest name ="roi">
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3 mt-3">
+                                        <label for="bookprice" class="form-label">Loan Amount</label>
+                                        <input   [(ngModel)]=applyLoanRequest.loanAmount type="number" class="form-control" id="loanAmount" placeholder="Enter amount here" name="loanAmount" required>
+                                        <div class="invalid-feedback">Please fill out this field.</div>
+                                      </div>
+
+                                      <div class="mb-3 mt-3">
+                                        <label for="bookprice" class="form-label">Duration</label>
+                                        <input  [(ngModel)]=applyLoanRequest.duration type="number" class="form-control" id="duration" placeholder="Enter duration here" name="duration" required>
+                                        <div class="invalid-feedback">Please fill out this field.</div>
+                                      </div>
+
+                                    <div class="d-flex justify-content-center">
+                                        <button type="button"
+                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                                            (click)="applyLoan()"
+                                            >
+
+                                            Apply</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</div>

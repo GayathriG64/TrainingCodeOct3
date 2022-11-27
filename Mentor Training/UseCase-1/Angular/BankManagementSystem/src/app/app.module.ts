@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { MainComponent } from './Components/main/main.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountDetailsComponent } from './Components/account-details/account-details.component';
+import { ApplyLoanComponent } from './Components/apply-loan/apply-loan.component';
+import { UpdateAccountComponent } from './Components/update-account/update-account.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AccountDetailsComponent } from './Components/account-details/account-de
     LoginComponent,
     HomeComponent,
     MainComponent,
-    AccountDetailsComponent
+    AccountDetailsComponent,
+    ApplyLoanComponent,
+    UpdateAccountComponent
   ],
   imports: [
     BrowserModule,

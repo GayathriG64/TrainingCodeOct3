@@ -53,6 +53,7 @@ public class CustomerController {
 		}
 		return name;
 	}
+	@CrossOrigin("*")
 	@PutMapping("/customer/update/{username}")
 	public String updateCustomer(@RequestBody UpdateRequest request,
 			@PathVariable String username)

@@ -26,4 +26,11 @@ export class LoginService {
   getMyLoans(username){
     return this.httpClient.get("http://localhost:8090/getAllLoans/"+username)
   }
+  applyLoan(request,username){
+    return this.httpClient.post("http://localhost:8090/apply/loan/"+username,request);
+  }
+  updateAccount(userName,request){
+    console.log(request);
+    return this.httpClient.post("http://localhost:8090/customer/update/"+userName,request);
+  }
 }

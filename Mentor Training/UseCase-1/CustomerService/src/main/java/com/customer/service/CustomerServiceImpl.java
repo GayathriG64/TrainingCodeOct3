@@ -46,6 +46,9 @@ public class CustomerServiceImpl implements CustomerService {
 	public String updateCustomerRequest(UpdateRequest request, String username)
 	{
 		List<Customer> customer = custRepo.findByUsername(username);
+		if(customer.isEmpty()) {
+			return("Customer not found!");
+		}
 		Customer updateCustomer= customer.get(0);
 		updateCustomer.setAddress(request.getAddress());
 		updateCustomer.setCountry(request.getCountry());
@@ -54,7 +57,7 @@ public class CustomerServiceImpl implements CustomerService {
 		updateCustomer.setPhoneNo(request.getPhoneNo());
 		updateCustomer.setName(request.getName());
 		Customer savedCustomer= custRepo.save(updateCustomer);
-		return savedCustomer.toString();
+		return savedCustomer.getName();
 	}
 	@Override
 	public boolean checkUsername(String username) {
