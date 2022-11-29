@@ -20,6 +20,10 @@ export class ApplyLoanComponent implements OnInit {
       (response)=>{
         console.log(response);
         this.loan = response as Loan
+        if(this.loan.loanId==null){
+          alert(this.loan.loanType+" already exists for you!")
+        }
+        else
         alert("Loan applied and here is the loanId:"+this.loan.loanId)
       }
     )

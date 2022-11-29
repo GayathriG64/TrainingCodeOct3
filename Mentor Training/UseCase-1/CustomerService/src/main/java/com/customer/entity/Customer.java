@@ -18,7 +18,7 @@ public class Customer {
 	@Id
 	@SequenceGenerator(name ="CustSeq" , initialValue = 1022330000)
 	@GeneratedValue( generator = "CustSeq")
-	private Long AccountId;
+	private Long accountId;
 	private String name;
 	private String username;
 	private String password;
@@ -35,10 +35,10 @@ public class Customer {
 	private String accType;
 	
 	public Long getAccountId() {
-		return AccountId;
+		return accountId;
 	}
 	public void setAccountId(Long accountId) {
-		AccountId = accountId;
+		this.accountId = accountId;
 	}
 	public String getName() {
 		return name;
@@ -106,22 +106,7 @@ public class Customer {
 	public void setAccType(String accType) {
 		this.accType = accType;
 	}
-	public Customer(Long AccountId, String name, String username, String password, String address, String state,
-			String country, String email, String pan, Long phoneNo, Date dob, String accType) {
-		super();
-		this.AccountId = AccountId;
-		this.name = name;
-		this.username = username;
-		this.password = password;
-		this.address = address;
-		this.state = state;
-		this.country = country;
-		this.email = email;
-		this.pan = pan;
-		this.phoneNo = phoneNo;
-		this.dob = dob;
-		this.accType = accType;
-	}
+	
 	public Customer() {
 		super();
 	}
@@ -142,7 +127,7 @@ public class Customer {
 	}
 	@Override
 	public String toString() {
-		return "Customer [AccountId=" + AccountId + ", name=" + name + ", username=" + username + ", password="
+		return "Customer [AccountId=" + accountId + ", name=" + name + ", username=" + username + ", password="
 				+ password + ", address=" + address + ", state=" + state + ", country=" + country + ", email=" + email
 				+ ", pan=" + pan + ", phoneNo=" + phoneNo + ", dob=" + dob + ", accType=" + accType + "]";
 	}

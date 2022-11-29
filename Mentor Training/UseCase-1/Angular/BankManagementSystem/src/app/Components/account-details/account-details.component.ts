@@ -32,7 +32,7 @@ export class AccountDetailsComponent implements OnInit {
   
   updateAccount(){
     let response= this.accountId;
-    this.route.navigate(['/updateAccount',this.username,response]);
+    this.route.navigate(['/updateAccount',this.username]);
   }
   ngOnInit(): void {
   }

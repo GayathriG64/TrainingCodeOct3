@@ -12,7 +12,7 @@ export class UpdateAccountComponent implements OnInit {
 
   constructor(private route:Router,private activatedRoute:ActivatedRoute, private service:LoginService) { }
   username = this.activatedRoute.snapshot.params['username'];
-  response = this.activatedRoute.snapshot.params['response'];
+  //response = this.activatedRoute.snapshot.params['response'];
   request : UpdateRequest = new UpdateRequest();
   goback(){
     this.route.navigate(['account/:username/:response']);
@@ -20,11 +20,11 @@ export class UpdateAccountComponent implements OnInit {
   updateAccount(){
     this.service.updateAccount(this.username,this.request).subscribe(
       (res)=>{
-        console.log("RESPONSE: "+res)
-        if(res !=""){
-        let name =res as string;
-        alert(name+" Your details were updated successfully!")
-        }
+        console.log(res)
+        alert("Your details were updated successfully!")
+      }, function(error){
+        console.log(error);
+        alert("Something wrong.Please try again")
       }
     )
   }

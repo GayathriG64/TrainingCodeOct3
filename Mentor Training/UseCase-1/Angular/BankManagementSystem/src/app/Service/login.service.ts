@@ -29,8 +29,9 @@ export class LoginService {
   applyLoan(request,username){
     return this.httpClient.post("http://localhost:8090/apply/loan/"+username,request);
   }
-  updateAccount(userName,request){
-    console.log(request);
-    return this.httpClient.post("http://localhost:8090/customer/update/"+userName,request);
+  updateAccount(userName,uprequest){
+    console.log(uprequest);
+    return this.httpClient.put("http://localhost:8090/customer/update/"+userName,uprequest
+    ,{responseType:'text' as 'json'});
   }
 }

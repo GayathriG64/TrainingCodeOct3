@@ -1,5 +1,6 @@
 package com.customer.controller;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,8 @@ import com.customer.service.CustomerService;
 @CrossOrigin("*")
 @RestController
 public class CustomerController {
-	
+	public static final Boolean BOOLEAN_TRUE =true;
+	public static final Boolean BOOLEAN_FALSE =false;
 	@Autowired
 	CustomerService customerService;
 	
@@ -37,21 +39,15 @@ public class CustomerController {
 		accountID= customerService.saveCustomer(customer);
 		}
 		catch(Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
+			return 1L;
 		}
 		return accountID;
 	}
 	@PostMapping("/customer/login")
 	public String loginCustomer(@RequestBody LoginRequest request){
-		String name="";
-		try {
-		name= customerService.validateLoginRequest(request);
-		}
-		catch(Exception e) {
-			System.out.println("Oops!"+e.getMessage());
-			return e.getMessage();
-		}
-		return name;
+		
+		return customerService.validateLoginRequest(request);
 	}
 	@CrossOrigin("*")
 	@PutMapping("/customer/update/{username}")
@@ -63,46 +59,41 @@ public class CustomerController {
 		name= customerService.updateCustomerRequest(request,username);
 		}
 		catch(Exception e) {
-			System.out.println("Oops!"+e.getMessage());
-			return e.getMessage();
+			return "Oops!"+e.getMessage();
 		}
 		return name;
 	}
 	
 	@GetMapping("/customer/check/{username}")
 	public Boolean checkUsername(@PathVariable String username)
-	{
-		if(customerService.checkUsername(username)) {
-			return true;
-		}
-		return false;
+	{	
+		
+		return customerService.checkUsername(username)? BOOLEAN_TRUE : BOOLEAN_FALSE;
 	}
 	
 	@PostMapping("/apply/loan/{username}")
 	public Loan applyLoan(@PathVariable String username,@RequestBody Loan loan)
 	{
-		Loan savedLoan=new Loan();
-		System.out.println("username: "+username);
+		
 		Long accountID = customerService.getAccountId(username) ;
 		if(accountID==0)
 			return null;
-		Map<String,Long> params = new HashMap<String,Long>();
+		Map<String,Long> params = new HashMap<>();
 		params.put("accountID",accountID);
-		savedLoan= restTemplate.postForObject("http://localhost:8091/loan/apply/{accountID}",
+		return restTemplate.postForObject("http://localhost:8091/loan/apply/{accountID}",
 					loan, Loan.class,params);
-		//	("http://localhost:8091/loan/apply/{accountID}", List.class);
-					
-		return savedLoan;
+
 	}
 	
 	@GetMapping("/getAllLoans/{username}")
 	public List<Loan> getAllLoans(@PathVariable String username){
-		List<Loan> listLoan;
-		System.out.println("username: "+username);
+		List<Loan> listLoan ;
+		
 		Long accountID = customerService.getAccountId(username) ;
+		
 		if(accountID==0)
-			return null;
-		Map<String,Long> params = new HashMap<String,Long>();
+			return Collections.emptyList();
+		Map<String,Long> params = new HashMap<>();
 		params.put("accountID",accountID);
 		listLoan= restTemplate.getForObject("http://localhost:8091/loan/AllLoans/"+accountID, List.class);
 		return listLoan;

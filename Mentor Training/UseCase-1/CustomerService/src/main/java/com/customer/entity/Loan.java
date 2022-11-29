@@ -2,15 +2,11 @@ package com.customer.entity;
 
 import java.sql.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 
 public class Loan {
 
-	private Long LoanId;
+	private Long loanId;
 	private Long accountID;
 	private String loanType;
 	private Long loanAmount;
@@ -21,10 +17,10 @@ public class Loan {
 	private Long duration;
 	
 	public Long getLoanId() {
-		return LoanId;
+		return loanId;
 	}
 	public void setLoanId(Long loanId) {
-		LoanId = loanId;
+		this.loanId = loanId;
 	}
 	public Long getAccountID() {
 		return accountID;
@@ -69,6 +65,7 @@ public class Loan {
 		this.rateOfInterest = rateOfInterest;
 		this.duration = duration;
 	}
+	
 	public Loan() {
 		super();
 	}

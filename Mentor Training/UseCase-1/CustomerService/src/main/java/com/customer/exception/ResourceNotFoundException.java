@@ -3,9 +3,9 @@ package com.customer.exception;
 public class ResourceNotFoundException extends RuntimeException{
 
 	public static final long serialVersionUID=1L;
-	private String resourceName;
-	private String fieldName;
-	private String fieldValue;
+	private final String resourceName;
+	private final String fieldName;
+	private final String fieldValue;
 	public String getResourceName() {
 		return resourceName;
 	}

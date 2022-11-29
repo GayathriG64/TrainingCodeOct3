@@ -35,7 +35,7 @@ public checkUserName() {
     (response) => {
       this.result = response as Boolean;
       console.log(response);
-      if (!response) {
+      if (response) {
         alert("Username is already taken.")
       }
     }
