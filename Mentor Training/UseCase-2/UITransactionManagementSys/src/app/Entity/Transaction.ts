@@ -1,5 +1,5 @@
 export class Transaction{
-    public  tranactionId:number;
+    public  tranactionId:number=0;
 	public  vendorAccountId:number;
 	public  accountId: number;
 	public  transactionType:string;

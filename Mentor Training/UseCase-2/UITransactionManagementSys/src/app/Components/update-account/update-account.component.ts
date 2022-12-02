@@ -11,12 +11,15 @@ import { LoginService } from 'src/app/Service/login.service';
 })
 export class UpdateAccountComponent implements OnInit {
 
-  constructor(private route:Router,private activatedRoute:ActivatedRoute, private service:LoginService) { }
+  constructor(private router:Router,private activatedRoute:ActivatedRoute, private service:LoginService) { }
   username = this.activatedRoute.snapshot.params['username'];
-  //response = this.activatedRoute.snapshot.params['response'];
+  response = this.activatedRoute.snapshot.params['response'];
   request : UpdateRequest = new UpdateRequest();
   goback(){
-    this.route.navigate(['account/:username/:response']);
+    //this.router.navigate(['account',,]);
+    alert("goin back");
+    this.router.navigate(['account',this.username,this.response]);
+    
   }
   updateAccount(){
     this.request.name= this.customer.name;
@@ -30,6 +33,7 @@ export class UpdateAccountComponent implements OnInit {
       (res)=>{
         console.log(res)
         alert("Your details were updated successfully!")
+        this.router.navigate(['account',this.username,this.response]);
       }, function(error){
         console.log(error);
         alert("Something wrong.Please try again")

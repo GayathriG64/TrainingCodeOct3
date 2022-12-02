@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginRequest } from '../Entity/LoginRequest';
+import { Transaction } from '../Entity/Transaction';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,11 @@ export class LoginService {
   }
   getCustomer(username){
     return this.httpClient.get("http://localhost:8090/customer/getCustomer/"+username)
+  }
+  getAllTransactions(username){
+    return this.httpClient.get<Transaction[]>("http://localhost:8090/customer/getAllTransactions/"+username);
+  }
+  saveTransaction(request){
+    return this.httpClient.post("http://localhost:8090/customer/sendMoney",request);
   }
 }
