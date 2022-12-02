@@ -1,0 +1,74 @@
+<div  style="padding-left: 40px;margin-top: 10px; background-color:rgb(199, 216, 247);">
+    To apply a loan click here 
+    <button type="button" class="btn btn-outline-primary" >
+         Apply Loan </button>
+        <button style="margin-left: 1300px;"
+         type="button" class="btn btn-primary" routerLink="/login">
+          Logout</button>
+</div>
+<div  style="padding-left: 40px;margin-top: 10px; background-color:rgb(199, 216, 247);">
+    To fetch all your loans click here 
+  <button type="button" class="btn btn-outline-primary" >
+      Get</button>
+</div>
+<div  style="padding-left: 40px;margin-top: 10px; background-color:rgb(199, 216, 247);">
+  To update your account click here
+<button type="button" class="btn btn-outline-primary" (click)="updateAccount()">
+    Update your details</button>
+</div>
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<table class="table">
+    <thead>
+      <tr style="margin-left: 30px;">
+        <th scope="col">LoanID</th>
+        <th scope="col">Loan Type</th>
+        <th scope="col">Loan Amount</th>
+        <th scope="col">Applied Date</th>
+        <th scope="col">Rate Of Interest</th>
+        <th scope="col">Tenure</th>
+      </tr>
+    </thead>
+  
+    <tbody style="background-color: rgb(199, 216, 247); font-family: Arial; padding-left: 5px;">
+  <!-- <tr *ngFor="let loan of allLoans;index as i">
+        <td style="padding: 25px;">{{loan.loanId}}</td>
+        <td style="padding: 25px;">{{loan.loanType}}</td>
+        <td style="padding: 25px;">{{loan.loanAmount}}</td>
+        <td style="padding: 25px;">{{loan.appliedDate}}</td>
+        <td style="padding: 25px;">{{loan.rateOfInterest}}</td>
+        <td style="padding: 25px;">{{loan.duration}}</td>
+    
+      </tr> 
+    -->   
+    </tbody>
+  
+
+

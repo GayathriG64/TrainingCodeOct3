@@ -1,0 +1,64 @@
+<!--
+ <section class="h-1000 gradient-form gradient-custom-4" style="background-color: #eee;"> -->
+    <body style="background-color: #151b3f; padding-top: 10px;
+    background-image: url('https://www.pixelstalk.net/wp-content/uploads/images6/Black-Background-Free-Download-620x388.jpg');">
+      <div class="container py-1 h-10 " style="background-color: #270a1b;">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+              <div class="row g-0">
+                <div class="col-lg-6">
+                  <div class="card-body p-md-5 mx-md-4">
+                    <div class="text-center">
+                      <img src="https://www.bing.com/th?id=OIP.F-QpMYniv8JGqgsM9rBsMQHaE8&w=306&h=204&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"
+                        style="width: 185px;" alt="logo">
+                      <h4 class="mt-1 mb-5 pb-1">Bank Login</h4>
+                    </div>
+    
+                    <form class="was-validated">
+                      <p>Please login to your account</p>
+                      
+                      <div class="form-outline mb-4">
+                        <input [(ngModel)]=loginRequest.username required id="form2Example11" class="form-control" name="username"
+                          placeholder="Enter username" />
+                        <label class="form-label" for="form2Example11">Username</label>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                      </div>
+    
+                      <div class="form-outline mb-4">
+                        <input [(ngModel)]=loginRequest.password required password type="password" id="form2Example22" class="form-control" name="password"/>
+                        <label class="form-label" for="form2Example22">Password</label>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                      </div>
+                      
+                      <div class="text-center pt-1 mb-5 pb-1">
+                        <button class="btn btn-primary btn-block fa-lg gradient-custom-4 mb-3" type="button" (click)="login()" >Log
+                          in</button>
+                      <br/>
+                        <a class="text-muted" href="#!">Forgot password?</a>
+                      </div>
+    
+                      <div class="d-flex align-items-center justify-content-center pb-4">
+                        <p class="mb-0 me-2">Don't have an account?</p>
+                        <button type="button" class="btn btn-primary" routerLink="/register">Create new</button>
+                      </div>
+                      
+                    </form>
+    
+                  </div>
+                </div>
+               <div class="col-lg-6 d-flex align-items-center gradient-custom-4">
+                  <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                    <h4 class="mb-4">Please login to your bank account with your username</h4>
+                    
+                  </div>
+                </div>
+            
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+    
+

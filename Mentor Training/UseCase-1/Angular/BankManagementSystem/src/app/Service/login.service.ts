@@ -13,25 +13,25 @@ export class LoginService {
   loginBank(loginRequest:LoginRequest){
     console.log(loginRequest);
 
-    return this.httpClient.post("http://localhost:8090/customer/login",loginRequest
+    return this.httpClient.post("http://ec2-3-85-172-208.compute-1.amazonaws.com:8090/customer/login",loginRequest
     ,{responseType:'text' as 'json'});
   }
 
   registerBank(registerRequest): Observable<any>{
-     return this.httpClient.post("http://localhost:8090/customer/register/",registerRequest);
+     return this.httpClient.post("http://ec2-3-85-172-208.compute-1.amazonaws.com:8090/customer/register/",registerRequest);
   }
   checkUserName(username){
-    return this.httpClient.get("http://localhost:8090/customer/check/"+username)
+    return this.httpClient.get("http://ec2-3-85-172-208.compute-1.amazonaws.com:8090/customer/check/"+username)
   }
   getMyLoans(username){
-    return this.httpClient.get("http://localhost:8090/getAllLoans/"+username)
+    return this.httpClient.get("http://ec2-3-85-172-208.compute-1.amazonaws.com:8090/getAllLoans/"+username)
   }
   applyLoan(request,username){
-    return this.httpClient.post("http://localhost:8090/apply/loan/"+username,request);
+    return this.httpClient.post("http://ec2-3-85-172-208.compute-1.amazonaws.com:8090/apply/loan/"+username,request);
   }
   updateAccount(userName,uprequest){
     console.log(uprequest);
-    return this.httpClient.put("http://localhost:8090/customer/update/"+userName,uprequest
+    return this.httpClient.put("http://ec2-3-85-172-208.compute-1.amazonaws.com:8090/customer/update/"+userName,uprequest
     ,{responseType:'text' as 'json'});
   }
 }
