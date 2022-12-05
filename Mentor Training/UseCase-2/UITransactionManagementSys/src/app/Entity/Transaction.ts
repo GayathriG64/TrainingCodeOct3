@@ -6,5 +6,5 @@ export class Transaction{
 	public  transactionAmount:number;
 	public  transactionDate:Date;
 	public  finalAmount:number;
-	public  message:string;
+	public  status:string;
 }

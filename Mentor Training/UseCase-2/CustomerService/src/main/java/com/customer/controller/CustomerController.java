@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -25,6 +26,7 @@ import com.customer.model.UpdateRequest;
 import com.customer.service.CustomerService;
 
 @CrossOrigin("*")
+@RequestMapping("/customer")
 @RestController
 public class CustomerController {
 	public static final Boolean BOOLEAN_TRUE =true;
@@ -35,7 +37,7 @@ public class CustomerController {
 	@Autowired
 	RestTemplate restTemplate;
 	
-	@PostMapping("/customer/register")
+	@PostMapping("/register")
 	public Long registerCustomer(@RequestBody Customer customer){
 		Long accountID=0L;
 		customer.setAmount(5000L);
@@ -48,13 +50,13 @@ public class CustomerController {
 		}
 		return accountID;
 	}
-	@PostMapping("/customer/login")
-	public String loginCustomer(@RequestBody LoginRequest request){
+	@PostMapping("/login")
+	public Customer loginCustomer(@RequestBody LoginRequest request){
 		
 		return customerService.validateLoginRequest(request);
 	}
 	@CrossOrigin("*")
-	@PutMapping("/customer/update/{username}")
+	@PutMapping("/update/{username}")
 	public String updateCustomer(@RequestBody UpdateRequest request,
 			@PathVariable String username)
 	{
@@ -68,13 +70,13 @@ public class CustomerController {
 		return name;
 	}
 	
-	@GetMapping("/customer/check/{username}")
+	@GetMapping("/check/{username}")
 	public Boolean checkUsername(@PathVariable String username)
 	{	
 		return customerService.checkUsername(username)? BOOLEAN_TRUE : BOOLEAN_FALSE;
 	}
 	
-	@PostMapping("/customer/sendMoney")
+	@PostMapping("/sendMoney")
 	public ResponseEntity<Transaction> sendMoney(@RequestBody TransactionRequest request)
 	{	
 		Long accountId= request.getAccountId();
@@ -82,20 +84,20 @@ public class CustomerController {
 		Long amount= request.getAmount();
 		Transaction transaction = customerService.saveTransaction(accountId, vendorAccountId, amount);
 		if(transaction.getTranactionId()==null){
-			return new ResponseEntity<Transaction>(transaction, HttpStatus.NOT_ACCEPTABLE);
+			return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
 		}
 		return new ResponseEntity<Transaction>(transaction, HttpStatus.CREATED);
 		
 	}
 	
-	@GetMapping("/customer/getAllTransactions/{username}")
+	@GetMapping("/getAllTransactions/{username}")
 	public ResponseEntity<List<Transaction>> getAllTransactions(@PathVariable String username){
 		List<Transaction> list= customerService.getAllTransactions(username);
 		return new ResponseEntity<>(list, HttpStatus.OK);
 		
 	}
 	
-	@GetMapping("/customer/getCustomer/{username}")
+	@GetMapping("/getCustomer/{username}")
 	public Customer getCustomer(@PathVariable String username){
 		return customerService.getCustomer(username);
 	}

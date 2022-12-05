@@ -44,4 +44,14 @@ export class LoginService {
   saveTransaction(request){
     return this.httpClient.post("http://localhost:8090/customer/sendMoney",request);
   }
+
+  storeCustomerSession(customer:any){
+    localStorage.setItem("customer",JSON.stringify(customer))
+  }
+  getCustomerSession(){
+    return localStorage.getItem("customer")
+  }
+  clearSession(){
+    localStorage.clear();
+  }
 }

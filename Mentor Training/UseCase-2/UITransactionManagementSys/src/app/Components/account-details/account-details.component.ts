@@ -18,6 +18,8 @@ export class AccountDetailsComponent implements OnInit {
   response=this.activatedRoute.snapshot.params['response'];
   transactions: Transaction[]=[];
   request: TransactionRequest = new TransactionRequest();
+  order:string;
+  availableAmt:any;
   saveTransaction(){
     let accountId=this.customer.accountId;
     
@@ -28,9 +30,14 @@ export class AccountDetailsComponent implements OnInit {
       (res)=>{
         let transaction :Transaction = new Transaction();
         transaction = res as Transaction;
-        if(transaction.accountId==null)
-          alert(transaction.message)
+        if(transaction.accountId==null){
+          console.log(transaction)
+          alert(transaction.status)
+        }
+        else{
         alert("sent money!")
+        }
+        this.route.navigate(['/account', this.username, this.response])
       }
     )
   }
@@ -47,15 +54,53 @@ export class AccountDetailsComponent implements OnInit {
     this.route.navigate(['/updateAccount',this.username,this.response]);
   }
 
+  sortTrans(){
+    if(this.order=="asc"){
+      this.sortAsc();
+    }
+    else{
+      this.sortDsc();
+    }
+  }
+
+  sortAsc(){
+    this.transactions.sort(
+      function(t1,t2){
+      if(t1.transactionDate.getTime>t2.transactionDate.getTime)
+        return -1;
+      else return 1;
+    })
+  }
+  sortDsc(){
+    this.transactions.sort(
+      function(t1,t2){
+      if(t1.transactionDate.getTime>t2.transactionDate.getTime)
+        return 1;
+      else return -1;
+    })
+  }
+
+  logout(){
+    localStorage.clear()
+  }
   ngOnInit(): void {
+    let cust:Customer = new Customer();
     this.service.getCustomer(this.username).subscribe(
       (response)=>{
-        //console.log(response)
-        this.customer = response as Customer;
-        console.log(this.customer.accountId)
+        cust = response as Customer;
+        console.log(cust.amount)
+        this.availableAmt=cust.amount;
       }
     )
-
+    
+    let data =localStorage.getItem("customer");
+    this.customer= JSON.parse(data);
+    console.log(this.customer)
+    
+    if(this.customer==null){
+      alert("Session expired! Please login again.")
+      this.route.navigate(['login'])
+    }
   }
 
 }

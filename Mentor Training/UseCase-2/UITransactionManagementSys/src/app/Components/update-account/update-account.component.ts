@@ -11,46 +11,54 @@ import { LoginService } from 'src/app/Service/login.service';
 })
 export class UpdateAccountComponent implements OnInit {
 
-  constructor(private router:Router,private activatedRoute:ActivatedRoute, private service:LoginService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private service: LoginService) { }
   username = this.activatedRoute.snapshot.params['username'];
   response = this.activatedRoute.snapshot.params['response'];
-  request : UpdateRequest = new UpdateRequest();
-  goback(){
+  request: UpdateRequest = new UpdateRequest();
+  goback() {
     //this.router.navigate(['account',,]);
     alert("goin back");
-    this.router.navigate(['account',this.username,this.response]);
-    
+    this.router.navigate(['account', this.username, this.response]);
+
   }
-  updateAccount(){
-    this.request.name= this.customer.name;
-        this.request.address= this.customer.address;
-        this.request.state= this.customer.state;
-        this.request.country = this.customer.country;
-        this.request.email= this.customer.email;
-        this.request.phoneNo= this.customer.phoneNo;
-        console.log(this.customer.name);
-    this.service.updateAccount(this.username,this.request).subscribe(
-      (res)=>{
+  updateAccount() {
+    this.request.name = this.customer.name;
+    this.request.address = this.customer.address;
+    this.request.state = this.customer.state;
+    this.request.country = this.customer.country;
+    this.request.email = this.customer.email;
+    this.request.phoneNo = this.customer.phoneNo;
+    console.log(this.customer.name);
+    this.service.updateAccount(this.username, this.request).subscribe(
+      (res) => {
         console.log(res)
         alert("Your details were updated successfully!")
-        this.router.navigate(['account',this.username,this.response]);
-      }, function(error){
+        this.router.navigate(['account', this.username, this.response]);
+      }, function (error) {
         console.log(error);
         alert("Something wrong.Please try again")
       }
     )
   }
   //customer:any;
-  userdata:any;
-  customer:Customer = new Customer();
+  userdata: any;
+  customer: Customer = new Customer();
   ngOnInit(): void {
-    this.service.getCustomer(this.username).subscribe(
-      (response)=>{
-        //console.log(response)
-        this.customer = response as Customer;
-        console.log(this.customer)
-      }
-    )
+    /* this.service.getCustomer(this.username).subscribe(
+       (response)=>{
+         //console.log(response)
+         this.customer = response as Customer;
+         console.log(this.customer)
+       }
+     )*/
+
+    let data = localStorage.getItem("customer");
+    this.customer = JSON.parse(data);
+    console.log(this.customer)
+    if (this.customer == null) {
+      alert("Session expired! Please login again.")
+      this.router.navigate(['login'])
+    }
   }
 
 }

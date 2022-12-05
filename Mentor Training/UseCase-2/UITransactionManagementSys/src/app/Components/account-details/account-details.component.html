@@ -1,7 +1,7 @@
 <div style="background-color: aliceblue ;" class="div-img">
 <div class="con" style="padding-left: 40px;margin-top: 10px;">
  
-  <button  type="button" class="btn btn-primary btn-right" routerLink="/login">
+  <button  type="button" class="btn btn-primary btn-right" (click)="logout()" routerLink="/login" >
     Logout</button>
 </div>
 <div class="container" style="padding-left: 40px;margin-top: 10px; background-color:rgb(199, 216, 247);">
@@ -18,6 +18,7 @@
 
 <!-- Button trigger modal -->
 <div class="container">
+  <h4>Available amount : {{availableAmt | currency:'INR'}} </h4>
 <button type="button" class="btn btn-primary btn-lg btn-center" data-bs-toggle="modal" data-bs-target="#targetModal">
   Send Money
 </button>
@@ -26,9 +27,16 @@
 <div class="modal" id="targetModal">
   <div class="modal-dialog">
     <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Money Transaction</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" #closeAddExpenseModal>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
       <div class="modal-body">
         <form class="was-validated"> 
-
           <div class="mb-3 mt-3"> 
             <label for="name" class="form-label">Vendor AccountID :</label>
             <input [(ngModel)]=request.vendorAccountId type="text" class="form-control" id="name" 
@@ -56,26 +64,32 @@
 </div>
 
 
-<table class="table">
+<table class="table ">
   <thead>
     <tr style="margin-left: 30px;">
       <th scope="col">TransactionID</th>
       <th scope="col">Transaction Type</th>
-      <th scope="col">Training Amount</th>
+      <th scope="col">Transaction Amount</th>
       <th scope="col">Vendor AccountID</th>
-      <th scope="col">Transaction Date</th>
+      <th scope="col">Transaction Date
+        <select style="background-color: azure;" id="order" (change)="sortTrans()">
+          <option [ngModel]=order value="asc" selected>Asc</option>
+          <option [ngModel]=order value="dsc" >Dsc</option>
+        </select>
+      </th>
       <th scope="col">Available Amount</th>
     </tr>
   </thead>
 
-  <tbody style="background-color: rgb(199, 216, 247); font-family: Arial; padding-left: 5px;">
+  <tbody class="tbl-img"
+  style="background-color: rgb(199, 216, 247); font-family: Arial; padding-left: 5px;">
     <tr *ngFor="let transaction of transactions;index as i">
       <td style="padding: 25px;">{{transaction.tranactionId}}</td>
       <td style="padding: 25px;">{{transaction.transactionType}}</td>
-      <td style="padding: 25px;">{{transaction.transactionAmount}}</td>
+      <td style="padding: 25px;">{{transaction.transactionAmount | currency:'INR'}}</td>
       <td style="padding: 25px;">{{transaction.vendorAccountId}}</td>
       <td style="padding: 25px;">{{transaction.transactionDate}}</td>
-      <td style="padding: 25px;">{{transaction.finalAmount}}</td>
+      <td style="padding: 25px;">{{transaction.finalAmount | currency:'INR'}}</td>
 
     </tr>
 
